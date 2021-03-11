@@ -1,4 +1,7 @@
-export default {
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
+
+export const theme = {
     fonts: {
         main: "Muli, sans serif",
         code: "Roboto mono, monospace"
@@ -8,7 +11,7 @@ export default {
         main2: "hsl(207,70%,94%)",
         dark1: "hsl(227,2%,12%)",
         dark2: "hsl(227,2%,26%)",
-        dark2: "hsl(227,2%,64%)",
+        dark3: "hsl(227,2%,64%)",
         light1: "hsl(0,0%,97%)",
         light2: "hsl(0,0%,99%)",
     },
@@ -31,5 +34,22 @@ export default {
     },
     shadows: {
         shadow1: "0px 5px 20px rgba(30, 30, 31, 0.05)",
-    },
-}
+    },  
+  }
+  export const GlobalStyle = createGlobalStyle`
+  ${reset}
+
+  *, *:before, *:after {
+      box-sizing: border-box;
+  }
+
+  html {
+      box-sizing: border-box;
+  }
+
+  body, html {
+      font-family: ${({ theme }) => theme.fonts.main};
+      height: 100%;
+      background-color: ${({ theme }) => theme.colors.dark2};
+  }
+`

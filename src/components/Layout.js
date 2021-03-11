@@ -1,8 +1,11 @@
 import React from 'react';
+// import { GlobalStyle } from "../theme/global-style";
+
 
 function Layout({ children }) {
     return (
         <div className="layout">
+            {/* <GlobalStyle /> */}
             {/* <Navbar /> */}
             <div className="content">
                 { children }  
