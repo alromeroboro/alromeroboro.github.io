@@ -36,7 +36,8 @@ export const theme = {
         shadow1: "0px 5px 20px rgba(30, 30, 31, 0.05)",
     },  
   }
-  export const GlobalStyle = createGlobalStyle`
+
+export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   *, *:before, *:after {
@@ -50,6 +51,6 @@ export const theme = {
   body, html {
       font-family: ${({ theme }) => theme.fonts.main};
       height: 100%;
-      background-color: ${({ theme }) => theme.colors.dark2};
+      background-color: ${({ theme }) => theme.colors.light1};
   }
 `

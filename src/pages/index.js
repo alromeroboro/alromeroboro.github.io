@@ -1,7 +1,10 @@
 import React from "react";
+import { Container, FeaturedImage } from "../components"
 
 export default function Home() {
   return (
-    <div>Hello world!</div>
+    <Container>
+      <FeaturedImage />
+    </Container>
   )
 }

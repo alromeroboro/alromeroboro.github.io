@@ -8,6 +8,9 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images    
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -17,6 +20,13 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    }, 
   ],
 }
