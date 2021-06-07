@@ -1,0 +1,2 @@
+(self.webpackChunkarbsite=self.webpackChunkarbsite||[]).push([[853],{7744:function(e,t,n){"use strict";n.r(t),n.d(t,{default:function(){return c}});var r=n(7294),u=n(7054);function c(){return r.createElement(u.W2,null,"Projects")}}}]);
+//# sourceMappingURL=component---src-pages-projects-js-b969f8d43402cbd2cc12.js.map
