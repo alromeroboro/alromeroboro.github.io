@@ -114,27 +114,59 @@ A showcase of personal or professional work.
 
 ### Color Palette
 
-| Role | Color |
-|---|---|
-| Background | `#0a0a0f` (near-black) |
-| Primary neon | `#00FFFF` (cyan) |
-| Accent neon | `#FF003C` (red/pink) |
-| Text | `#C0C8D0` (light gray) |
-| Panel border | `#1A2A3A` with neon glow |
+| Role | Tailwind token | Hex | Notes |
+|---|---|---|---|
+| Background | `bg-bg` | `#050810` | Near-black with faint blue tint |
+| Primary neon | `text-neon` / `border-neon` | `#00FFFF` | Cyan — dominant UI chrome |
+| Accent red | `text-accent` / `border-accent` | `#FF003C` | CTA buttons, danger indicators |
+| Fuchsia neon | `text-fuchsia` / `border-fuchsia` | `#FF00C8` | Role tagline, ES lang toggle, About panel |
+| **Amber neon** | `text-amber` / `border-amber` | `#FF8C00` | Blade Runner 2049 warm tone — building windows, atmospheric haze |
+| Muted text | `text-muted` | `#C0C8D0` | Body copy and secondary labels |
+| Panel bg | `bg-panel` | `#060B12` | Dark panel backgrounds |
+| Panel border | `border-border` | `#0E1E2E` | Default non-glowing borders |
+
+Shadow utilities: `shadow-neon`, `shadow-accent`, `shadow-fuchsia`, `shadow-amber`
+Text glow utilities: `text-glow-neon`, `text-glow-fuchsia`, `text-glow-accent`, `text-glow-amber`
 
 ### Typography
 
-- **Headings:** monospace or display font — e.g., `Orbitron`, `Share Tech Mono`, or `VT323`
-- **Body:** clean monospace — e.g., `JetBrains Mono` or `IBM Plex Mono`
-- All caps used liberally for labels and status text
+| Role | Font family | Tailwind class |
+|---|---|---|
+| Hero name | `Turret Road`, Orbitron fallback | `font-name` |
+| Display / headings | `Orbitron`, Share Tech Mono fallback | `font-display` |
+| Body / code | `JetBrains Mono`, IBM Plex Mono fallback | `font-body` |
 
-### UI Components
+All caps used liberally for labels, HUD readouts, and status text.
 
-- **Neon-bordered panels** with subtle inner glow (`box-shadow`)
-- **Glitch effect** on name/headline (CSS keyframe animation, optional)
-- **Scanline overlay** for CRT monitor feel (CSS `::after` pseudo-element, optional)
-- **Blinking cursor** (`_`) for terminal text elements
-- **Hover states:** neon color intensifies, borders brighten
+### UI Components — Implemented
+
+| Component | Implementation | File |
+|---|---|---|
+| **Holo panels** | `panel-holo` Tailwind utility — border cycles cyan → fuchsia → amber via `holo-pulse` keyframe (5 s) | `global.css` |
+| **Name glitch** | `.name-main` (cyan base) + `.name-glitch` (fuchsia overlay, `glitch` keyframe, 9 s interval) | `BaseLayout.astro` |
+| **CRT scanlines** | Fixed `repeating-linear-gradient` overlay, z-index 40 | `BaseLayout.astro` |
+| **Scrolling grid** | 60 px cyan grid, `grid-scroll` keyframe (14 s) | `BaseLayout.astro` |
+| **Atmospheric orbs** | 4 fixed blurred radial orbs: cyan (top-right), fuchsia (bottom-left), blue (center), amber (mid-right) | `BaseLayout.astro` |
+| **Vignette** | Fixed radial-gradient darkening screen edges (cinematic depth) | `BaseLayout.astro` |
+| **Neon rain** | Canvas React component — 260 drops, cyan 80% / fuchsia 12% / amber 8%, screen blend mode | `RainEffect.tsx` |
+| **City skyline** | Clip-path polygon on a 220 px `div`, repeating-linear-gradient building columns | `index.astro` |
+| **Window lights** | 57 radial-gradient dots in `::after` pseudo-element — amber, warm-white, cyan, fuchsia; screen blend | `index.astro` |
+| **Fog layers** | `.fog-cyan`, `.fog-fuchsia`, `.fog-amber` — blurred radial hazes above the skyline, `haze-shimmer` anim | `index.astro` |
+| **City glow** | Ground-level gradient reflection: cyan + fuchsia + amber, 130 px, `blur(12px)` | `index.astro` |
+| **Language toggle** | React component, cyan for EN / fuchsia for ES, client:load | `LangToggle.tsx` |
+
+### Keyframes (defined in `global.css`)
+
+| Name | Purpose |
+|---|---|
+| `glitch` | Fuchsia clip-path flash on hero name |
+| `holo-pulse` | Border color cycle — cyan → fuchsia → amber |
+| `grid-scroll` | Background grid slow vertical scroll |
+| `glow-breathe` | Atmospheric orbs pulsing opacity + scale |
+| `haze-shimmer` | Fog layer opacity shimmer |
+| `flicker` | Neon flicker drop-out |
+| `blink` | Cursor blink |
+| `scanline` | CRT scanline sweep |
 
 ---
 

@@ -46,11 +46,29 @@ An `astro-docs` MCP server is pre-configured in `.mcp.json` (points to `https://
 
 Full details in `SPEC.MD § Design System`. Key values:
 
-| Token | Value |
-|---|---|
-| Background | `#0a0a0f` |
-| Primary neon | `#00FFFF` (cyan) |
-| Accent neon | `#FF003C` |
-| Text | `#C0C8D0` |
+| Token | Tailwind class | Value |
+|---|---|---|
+| Background | `bg-bg` | `#050810` |
+| Primary neon | `text-neon`, `border-neon` | `#00FFFF` (cyan) |
+| Accent red | `text-accent`, `border-accent` | `#FF003C` |
+| Fuchsia neon | `text-fuchsia`, `border-fuchsia` | `#FF00C8` |
+| Amber neon | `text-amber`, `border-amber` | `#FF8C00` |
+| Muted text | `text-muted` | `#C0C8D0` |
 
-Heading fonts: `Orbitron`, `Share Tech Mono`, or `VT323`. Body: `JetBrains Mono` or `IBM Plex Mono`.
+Heading fonts: `Orbitron` (`font-display`), `Turret Road` (`font-name`). Body: `JetBrains Mono` (`font-body`).
+
+### Implemented visual effects
+
+| Effect | Where | Notes |
+|---|---|---|
+| Animated rain | `RainEffect.tsx` | Canvas, 260 drops — cyan (80%), fuchsia (12%), amber (8%) |
+| City skyline | `index.astro` `.city-skyline` | Clip-path polygon, 220 px tall |
+| Window lights | `index.astro` `.city-skyline::after` | 57 radial-gradient dots, screen blend mode |
+| Fog layers | `index.astro` `.fog-cyan/fuchsia/amber` | Blurred radial hazes above the skyline |
+| City glow | `index.astro` `.city-glow` | Ground-level neon reflection (cyan + fuchsia + amber) |
+| Holo panels | Tailwind `panel-holo` utility | Border cycles cyan → fuchsia → amber via `holo-pulse` |
+| Atmospheric orbs | `BaseLayout.astro` `.glow-orbs` | 4 fixed radial orbs (cyan, fuchsia, blue, amber) |
+| Vignette | `BaseLayout.astro` `.vignette` | Radial gradient darkens screen edges |
+| CRT scanlines | `BaseLayout.astro` `.scanlines` | Repeating-linear-gradient, fixed, z-index 40 |
+| Name glitch | `BaseLayout.astro` `.name-glitch` | Fuchsia layer, `glitch` keyframe, 9 s interval |
+| Scrolling grid | `BaseLayout.astro` `.grid-bg` | 60 px cyan grid, `grid-scroll` keyframe |

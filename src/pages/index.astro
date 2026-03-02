@@ -9,7 +9,7 @@ const t = useTranslations(locale);
 <BaseLayout locale={locale} title={`${t('hero.name')} | Portfolio`} path="/">
 
   <!-- ── Hero / City backdrop ─────────────────────────────── -->
-  <section class="relative flex flex-col items-center justify-center text-center px-6 py-16 gap-5 city-hero overflow-hidden">
+  <section class="relative flex flex-col items-center text-center px-5 py-2 gap-5 city-hero overflow-hidden">
 
     <!-- City skyline silhouette (window lights via ::after) -->
     <div class="city-skyline" aria-hidden="true"></div>
@@ -23,12 +23,13 @@ const t = useTranslations(locale);
     <div class="city-glow" aria-hidden="true"></div>
 
     <!-- Role tagline — fuchsia -->
-    <p
-      class="relative z-10 font-display text-sm tracking-[0.35em] text-fuchsia uppercase"
-      style="text-shadow: 0 0 12px #ff00c8, 0 0 40px #ff00c866;"
-    >
-      {t('hero.role')}
-    </p>
+    <div class="shadow-fuchsia p-3 w-full" style="background: rgba(10,0,14,0.85);" aria-hidden="true">
+      <p
+        class="relative z-10 font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia uppercase"
+      >
+        {t('hero.role')}
+      </p>
+    </div>
 
     <!-- Welcome line with decorative rules -->
     <div class="relative z-10 flex items-center gap-4 w-full max-w-lg">
