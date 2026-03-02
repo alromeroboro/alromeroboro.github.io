@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n';
+
+const locale = Astro.currentLocale ?? 'en';
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={`${t('nav.about')} | Portfolio`} path="/about">
+  <section class="max-w-3xl mx-auto px-6 py-14 flex flex-col gap-12">
+
+    <!-- Section header -->
+    <header class="relative">
+      <div class="flex items-center gap-4">
+        <div class="h-px flex-1 bg-gradient-to-r from-fuchsia/50 to-transparent max-w-8"></div>
+        <h1 class="font-display text-3xl font-black text-fuchsia uppercase tracking-widest"
+            style="text-shadow: 0 0 12px #ff00c8, 0 0 40px #ff00c866;">
+          // {t('panels.about.title')}
+        </h1>
+        <div class="h-px flex-1 bg-gradient-to-l from-neon/40 to-transparent"></div>
+      </div>
+      <p class="text-[10px] tracking-widest text-muted/40 mt-1 uppercase">IDENTITY RECORD &gt;&gt; CLASSIFIED</p>
+    </header>
+
+    <!-- Introduction -->
+    <div class="panel-holo border border-fuchsia/25 p-6 flex flex-col gap-3 relative" style="background: rgba(10,0,14,0.85);">
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/70"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-fuchsia/40"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon/40"></div>
+      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
+      <h2 class="font-display text-[10px] tracking-widest text-muted/50 uppercase">INTRODUCTION</h2>
+      <p class="text-xs text-muted/80 leading-relaxed">
+        Placeholder bio. Replace with your personal introduction.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="flex flex-col gap-4">
+      <h2 class="font-display text-[10px] tracking-widest text-muted/50 uppercase flex items-center gap-3">
+        <span class="text-neon">//</span> {t('panels.about.skills')}
+        <span class="flex-1 h-px bg-neon/20"></span>
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js'].map((skill, i) => (
+          <span
+            class="px-3 py-1.5 text-[10px] tracking-widest uppercase"
+            style={`
+              border: 1px solid ${i % 2 === 0 ? 'rgba(0,255,255,0.4)' : 'rgba(255,0,200,0.4)'};
+              color: ${i % 2 === 0 ? '#00ffff' : '#ff00c8'};
+              box-shadow: 0 0 6px ${i % 2 === 0 ? '#00ffff22' : '#ff00c822'};
+              background: ${i % 2 === 0 ? 'rgba(0,255,255,0.04)' : 'rgba(255,0,200,0.04)'};
+            `}
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="flex flex-col gap-4">
+      <h2 class="font-display text-[10px] tracking-widest text-muted/50 uppercase flex items-center gap-3">
+        <span class="text-fuchsia">//</span> {t('panels.about.experience')}
+        <span class="flex-1 h-px bg-fuchsia/20"></span>
+      </h2>
+      <p class="text-xs text-muted/60 leading-relaxed">Placeholder — add your work history here.</p>
+    </div>
+
+    <a href="/" class="text-[10px] tracking-widest text-neon hover:underline uppercase">&lt;&lt; BACK_HOME</a>
+  </section>
+</BaseLayout>

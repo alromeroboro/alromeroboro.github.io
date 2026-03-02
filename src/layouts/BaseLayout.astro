@@ -1,0 +1,229 @@
+---
+import '../styles/global.css';
+import LangToggle from '../components/LangToggle';
+import RainEffect from '../components/RainEffect';
+import { useTranslations } from '../i18n';
+
+interface Props {
+  locale: string;
+  title?: string;
+  /** Path without locale prefix, e.g. "/" or "/projects" */
+  path?: string;
+}
+
+const { locale, title = 'Portfolio', path = '/' } = Astro.props;
+const t = useTranslations(locale);
+
+const now = new Date();
+const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2, '0')} / ${String(now.getDate()).padStart(2, '0')}`;
+---
+
+<!doctype html>
+<html lang={locale} class="bg-bg text-muted">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={t('hero.role')} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Turret+Road:wght@400;700;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen font-body relative overflow-x-hidden">
+
+    <!-- Z0: Dark grid background -->
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <!-- Z1: Atmospheric glow orbs -->
+    <div class="glow-orbs" aria-hidden="true">
+      <div class="orb orb-cyan"></div>
+      <div class="orb orb-fuchsia"></div>
+      <div class="orb orb-blue"></div>
+      <div class="orb orb-amber"></div>
+    </div>
+
+    <!-- Z1b: Cinematic vignette -->
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- Z2: Rain canvas (client:load) -->
+    <RainEffect client:load />
+
+    <!-- Z3: CRT scanlines overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ─── HEADER ───────────────────────────────────────────── -->
+    <header class="relative z-10 grid grid-cols-[1fr_auto_1fr] items-start px-6 pt-4 pb-3 border-b border-neon/20 gap-4">
+      <!-- Corner decorations -->
+      <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-neon/60" aria-hidden="true"></div>
+      <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-fuchsia/60" aria-hidden="true"></div>
+
+      <!-- Left: status readouts -->
+      <div class="flex flex-col gap-1 pt-1">
+        <div class="flex items-center gap-2 text-[10px] tracking-widest text-accent uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent shadow-accent animate-pulse"></span>
+          {t('status.visual')}
+        </div>
+        <div class="flex items-center gap-2 text-[10px] tracking-widest text-accent/80 uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent/70 animate-pulse [animation-delay:0.5s]"></span>
+          {t('status.active')}
+        </div>
+      </div>
+
+      <!-- Center: ALBERTO large name -->
+      <div class="flex flex-col items-center gap-1">
+        <div class="relative">
+          <!-- Base layer -->
+          <span class="name-main font-name text-[5rem] leading-none font-extrabold tracking-[0.18em] text-neon uppercase block">
+            {t('hero.name')}
+          </span>
+          <!-- Glitch layer -->
+          <span class="name-glitch font-name text-[5rem] leading-none font-extrabold tracking-[0.18em] text-fuchsia uppercase absolute inset-0 block" aria-hidden="true">
+            {t('hero.name')}
+          </span>
+        </div>
+        <!-- Decorative scanline bar beneath name -->
+        <div class="flex items-center gap-1 w-full max-w-xs">
+          <div class="flex-1 h-px bg-gradient-to-r from-transparent to-neon/40"></div>
+          <div class="flex gap-0.5">
+            {Array.from({ length: 6 }).map(() => (
+              <div class="w-1 h-2 bg-neon/30"></div>
+            ))}
+          </div>
+          <div class="flex-1 h-px bg-gradient-to-l from-transparent to-neon/40"></div>
+        </div>
+      </div>
+
+      <!-- Right: sys date + lang toggle -->
+      <div class="flex flex-col items-end gap-2 pt-1">
+        <div class="text-right">
+          <div class="text-[10px] tracking-widest text-neon/70 uppercase">SYS&gt; {sysDate}</div>
+          <div class="text-[10px] tracking-widest text-muted/40 uppercase">LOS ANGELES</div>
+        </div>
+        <LangToggle locale={locale} path={path} client:load />
+      </div>
+    </header>
+
+    <!-- ─── PAGE CONTENT ──────────────────────────────────────── -->
+    <main class="relative z-10">
+      <slot />
+    </main>
+
+    <!-- ─── FOOTER ────────────────────────────────────────────── -->
+    <footer class="relative z-10 px-8 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-between items-center">
+      <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-fuchsia/50" aria-hidden="true"></div>
+      <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon/50" aria-hidden="true"></div>
+      <span class="text-neon/70">{t('footer.ready')}</span>
+      <span>{t('footer.protocol')}</span>
+      <span class="text-fuchsia/60">{t('footer.security')}</span>
+      <span>{t('footer.comp')}</span>
+      <span>{t('footer.copyright')}</span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* ── Background grid ─────────────────────────────────── */
+  .grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0, 255, 255, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.022) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-scroll 14s linear infinite;
+  }
+
+  /* ── Atmospheric glow orbs ──────────────────────────── */
+  .glow-orbs {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: glow-breathe 9s ease-in-out infinite;
+  }
+  .orb-cyan {
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.07) 0%, transparent 70%);
+    top: -180px;
+    right: -120px;
+    animation-delay: 0s;
+  }
+  .orb-fuchsia {
+    width: 550px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255, 0, 200, 0.07) 0%, transparent 70%);
+    bottom: -160px;
+    left: -100px;
+    animation-delay: 4.5s;
+  }
+  .orb-blue {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 80, 200, 0.06) 0%, transparent 70%);
+    top: 40%;
+    left: 30%;
+    animation-delay: 2s;
+  }
+  .orb-amber {
+    width: 500px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.055) 0%, transparent 70%);
+    top: 25%;
+    right: 8%;
+    animation-delay: 7s;
+  }
+
+  /* ── Cinematic vignette ──────────────────────────── */
+  .vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 85% 75% at 50% 38%,
+      transparent 40%,
+      rgba(3, 5, 10, 0.68) 100%
+    );
+  }
+
+  /* ── CRT Scanlines ──────────────────────────────────── */
+  .scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.07) 2px,
+      rgba(0, 0, 0, 0.07) 4px
+    );
+  }
+
+  /* ── Name glow & glitch ─────────────────────────────── */
+  .name-main {
+    text-shadow:
+      0 0 10px #00ffff,
+      0 0 40px #00ffff88,
+      0 0 80px #00ffff33;
+  }
+  .name-glitch {
+    opacity: 0;
+    animation: glitch 9s steps(1) infinite;
+    animation-delay: 4s;
+  }
+</style>

@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n';
+
+const locale = Astro.currentLocale ?? 'es';
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={`${t('hero.name')} | Portfolio`} path="/">
+
+  <!-- ── Hero / City backdrop ─────────────────────────────── -->
+  <section class="relative flex flex-col items-center justify-center text-center px-6 py-16 gap-5 city-hero overflow-hidden">
+
+    <div class="city-skyline" aria-hidden="true"></div>
+    <div class="city-glow" aria-hidden="true"></div>
+
+    <p
+      class="relative z-10 font-display text-sm tracking-[0.35em] text-fuchsia uppercase"
+      style="text-shadow: 0 0 12px #ff00c8, 0 0 40px #ff00c866;"
+    >
+      {t('hero.role')}
+    </p>
+
+    <div class="relative z-10 flex items-center gap-4 w-full max-w-lg">
+      <div class="flex-1 h-px bg-gradient-to-r from-transparent to-neon/50"></div>
+      <span class="text-[10px] tracking-[0.3em] text-muted/70 whitespace-nowrap">
+        {t('hero.welcome')}
+      </span>
+      <div class="flex-1 h-px bg-gradient-to-l from-transparent to-fuchsia/50"></div>
+    </div>
+
+    <a
+      href="#contact"
+      class="relative z-10 px-8 py-2.5 text-fuchsia text-xs tracking-[0.2em] uppercase font-body overflow-hidden group"
+      style="border: 1px solid #ff00c8; box-shadow: 0 0 14px #ff00c844, inset 0 0 14px #ff00c811;"
+    >
+      <span class="relative z-10">{t('hero.cta')}</span>
+      <div class="absolute inset-0 bg-fuchsia/10 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></div>
+    </a>
+  </section>
+
+  <!-- ── Info panels ──────────────────────────────────────── -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 px-6 pb-12">
+
+    <!-- PROJECTS panel -->
+    <div class="panel-holo border border-neon/30 p-6 flex flex-col gap-3 relative" style="background: rgba(0,10,18,0.85);">
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-neon/70"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/40"></div>
+      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon/70"></div>
+
+      <h2 class="font-display text-neon text-xs tracking-widest text-glow-neon">
+        &#x25A0;&#x25A0; {t('panels.projects.title')}
+      </h2>
+      <div class="text-xs text-muted/70 space-y-1">
+        <p><span class="text-muted/40">LAST DEPLOY: </span><span class="text-muted">NEXUS_01</span></p>
+        <p><span class="text-muted/40">STACK: </span><span class="text-muted">ASTRO / TS / CSS</span></p>
+      </div>
+      <div class="project-thumb w-full h-16 border border-neon/20 flex items-center justify-center overflow-hidden">
+        <div class="thumb-inner w-full h-full"></div>
+      </div>
+      <a
+        href="/es/projects"
+        class="mt-1 px-4 py-1.5 border border-neon/60 text-neon text-[10px] tracking-widest uppercase text-center hover:bg-neon/10 transition-colors"
+        style="box-shadow: 0 0 8px #00ffff22;"
+      >
+        {t('panels.projects.cta')}
+      </a>
+    </div>
+
+    <!-- ABOUT ME panel -->
+    <div class="panel-holo border border-fuchsia/30 p-6 flex flex-col gap-3 relative" style="background: rgba(10,0,14,0.85);">
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/70"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-fuchsia/40"></div>
+      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-fuchsia/40"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/70"></div>
+
+      <h2 class="font-display text-fuchsia text-xs tracking-widest text-glow-fuchsia">
+        &#x25A0;&#x25A0; {t('panels.about.title')}
+      </h2>
+      <div class="text-xs text-muted/70 space-y-1">
+        <p><span class="text-muted/40">SKILLS: </span><span class="text-muted">JAVASCRIPT / REACT</span></p>
+        <p><span class="text-muted/40">EXPERIENCE: </span><span class="text-muted">5+ YEARS</span></p>
+      </div>
+      <div class="mt-auto h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent"></div>
+      <a href="/es/about" class="text-[10px] tracking-widest text-fuchsia hover:text-white transition-colors">
+        {t('nav.about')} &gt;&gt;
+      </a>
+    </div>
+
+    <!-- CONTACT panel -->
+    <div id="contact" class="panel-holo border border-neon/25 p-6 flex flex-col gap-3 relative" style="background: rgba(0,8,16,0.85);">
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/60"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/60"></div>
+      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/40"></div>
+
+      <h2 class="font-display text-neon text-xs tracking-widest text-glow-neon">
+        &#x25A0;&#x25A0;&#x25A0; {t('panels.contact.title')}
+      </h2>
+      <div class="text-xs text-muted/70 space-y-1">
+        <p><span class="text-muted/40">LINKS: </span><span class="text-muted">GITHUB / LINKEDIN</span></p>
+        <p><span class="text-muted/40">STATUS: </span><span class="text-neon">AVAILABLE</span></p>
+      </div>
+      <div class="flex gap-3 mt-auto">
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1 py-1.5 text-center border border-neon/50 text-neon text-[10px] tracking-widest uppercase hover:bg-neon/10 transition-colors"
+          style="box-shadow: 0 0 8px #00ffff22;"
+        >
+          CONNECT
+        </a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-1 py-1.5 text-center border border-fuchsia/50 text-fuchsia text-[10px] tracking-widest uppercase hover:bg-fuchsia/10 transition-colors"
+          style="box-shadow: 0 0 8px #ff00c822;"
+        >
+          SEND MESSAGE
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .city-hero {
+    min-height: 260px;
+    background:
+      linear-gradient(to bottom, rgba(5,8,16,0.5) 0%, transparent 40%),
+      linear-gradient(to top, rgba(0,255,255,0.07) 0%, transparent 50%);
+  }
+  .city-skyline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    pointer-events: none;
+    opacity: 0.55;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0px, transparent 10px,
+        rgba(5,15,30,0.9) 10px, rgba(5,15,30,0.9) 22px,
+        transparent 22px, transparent 26px,
+        rgba(8,12,25,0.85) 26px, rgba(8,12,25,0.85) 44px,
+        transparent 44px, transparent 50px,
+        rgba(6,14,28,0.9) 50px, rgba(6,14,28,0.9) 60px,
+        transparent 60px, transparent 68px,
+        rgba(4,12,22,0.9) 68px, rgba(4,12,22,0.9) 86px,
+        transparent 86px, transparent 94px,
+        rgba(7,16,30,0.85) 94px, rgba(7,16,30,0.85) 108px
+      );
+    clip-path: polygon(
+      0% 100%, 0% 60%, 2% 60%, 2% 20%, 5% 20%, 5% 40%, 8% 40%, 8% 10%,
+      11% 10%, 11% 45%, 14% 45%, 14% 25%, 17% 25%, 17% 55%, 20% 55%, 20% 15%,
+      23% 15%, 23% 50%, 26% 50%, 26% 30%, 29% 30%, 29% 5%, 32% 5%, 32% 35%,
+      35% 35%, 35% 20%, 38% 20%, 38% 55%, 41% 55%, 41% 10%, 44% 10%, 44% 40%,
+      47% 40%, 47% 22%, 50% 22%, 50% 50%, 53% 50%, 53% 8%, 56% 8%, 56% 38%,
+      59% 38%, 59% 28%, 62% 28%, 62% 15%, 65% 15%, 65% 45%, 68% 45%, 68% 25%,
+      71% 25%, 71% 55%, 74% 55%, 74% 12%, 77% 12%, 77% 42%, 80% 42%, 80% 30%,
+      83% 30%, 83% 18%, 86% 18%, 86% 48%, 89% 48%, 89% 22%, 92% 22%, 92% 58%,
+      95% 58%, 95% 35%, 98% 35%, 98% 60%, 100% 60%, 100% 100%
+    );
+  }
+  .city-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(0,255,255,0.10) 0%, rgba(255,0,200,0.05) 40%, transparent 100%);
+    filter: blur(8px);
+  }
+  .project-thumb { background: rgba(0,10,20,0.9); }
+  .thumb-inner {
+    background:
+      linear-gradient(to top, rgba(0,255,255,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 100%, rgba(255,0,200,0.1) 0%, transparent 50%),
+      repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(0,255,255,0.04) 8px, rgba(0,255,255,0.04) 9px),
+      repeating-linear-gradient(0deg, transparent 0px, transparent 8px, rgba(0,255,255,0.03) 8px, rgba(0,255,255,0.03) 9px);
+  }
+</style>

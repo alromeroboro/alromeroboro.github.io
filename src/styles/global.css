@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ─────────────────────────────── */
+  --color-bg:      #050810;
+  --color-neon:    #00ffff;
+  --color-accent:  #ff003c;
+  --color-fuchsia: #ff00c8;
+  --color-amber:   #ff8c00;
+  --color-muted:   #c0c8d0;
+  --color-border:  #0e1e2e;
+  --color-panel:   #060b12;
+
+  /* ── Fonts ──────────────────────────────── */
+  --font-family-display: "Orbitron", "Share Tech Mono", monospace;
+  --font-family-name:    "Turret Road", "Orbitron", monospace;
+  --font-family-body:    "JetBrains Mono", "IBM Plex Mono", monospace;
+
+  /* ── Shadows ────────────────────────────── */
+  --shadow-neon:    0 0 8px #00ffff, 0 0 24px #00ffff44;
+  --shadow-accent:  0 0 8px #ff003c, 0 0 24px #ff003c44;
+  --shadow-fuchsia: 0 0 8px #ff00c8, 0 0 24px #ff00c844;
+  --shadow-amber:   0 0 8px #ff8c00, 0 0 24px #ff8c0044;
+}
+
+/* ── Custom utilities ──────────────────────── */
+
+@utility text-glow-neon {
+  text-shadow: 0 0 8px #00ffff, 0 0 30px #00ffff66;
+}
+
+@utility text-glow-fuchsia {
+  text-shadow: 0 0 8px #ff00c8, 0 0 30px #ff00c866;
+}
+
+@utility text-glow-accent {
+  text-shadow: 0 0 8px #ff003c, 0 0 24px #ff003c44;
+}
+
+@utility text-glow-amber {
+  text-shadow: 0 0 8px #ff8c00, 0 0 30px #ff8c0066;
+}
+
+@utility panel-holo {
+  animation: holo-pulse 5s ease-in-out infinite;
+}
+
+/* ── Keyframes ────────────────────────────── */
+
+/* Glitch on name headline */
+@keyframes glitch {
+  0%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); opacity: 0; }
+  20%       { clip-path: inset(8% 0 65% 0);  transform: translate(-5px, 2px);  opacity: 0.7; }
+  40%       { clip-path: inset(55% 0 25% 0); transform: translate(5px, -2px);  opacity: 0.7; }
+  60%       { clip-path: inset(72% 0 8% 0);  transform: translate(-3px, 1px);  opacity: 0.7; }
+  80%       { clip-path: inset(25% 0 55% 0); transform: translate(3px, -1px);  opacity: 0.7; }
+}
+
+/* CRT scanline sweep */
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Neon flicker */
+@keyframes flicker {
+  0%, 89%, 91%, 93%, 100% { opacity: 1; }
+  90%                       { opacity: 0.3; }
+  92%                       { opacity: 0.85; }
+}
+
+/* Holographic border — cycles cyan → fuchsia → amber */
+@keyframes holo-pulse {
+  0%, 100% {
+    border-color: rgba(0, 255, 255, 0.35);
+    box-shadow: 0 0 14px rgba(0, 255, 255, 0.12),
+                inset 0 0 14px rgba(0, 255, 255, 0.04);
+  }
+  33% {
+    border-color: rgba(255, 0, 200, 0.35);
+    box-shadow: 0 0 14px rgba(255, 0, 200, 0.12),
+                inset 0 0 14px rgba(255, 0, 200, 0.04);
+  }
+  66% {
+    border-color: rgba(255, 140, 0, 0.22);
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.09),
+                inset 0 0 12px rgba(255, 140, 0, 0.03);
+  }
+}
+
+/* Grid background scroll */
+@keyframes grid-scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+
+/* Atmospheric orb breathe */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(1.1); }
+}
+
+/* City haze shimmer */
+@keyframes haze-shimmer {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
