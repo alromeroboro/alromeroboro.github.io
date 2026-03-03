@@ -5,7 +5,7 @@ export const en = {
   'nav.contact': 'CONTACT',
 
   // Hero
-  'hero.name': 'ALBERTO',
+  'hero.name': 'ALBERTO ROMERO',
   'hero.role': 'FRONTEND DEVELOPER // WEB ARCHITECT',
   'hero.welcome': '// WELCOME TO MY PORTFOLIO',
   'hero.cta': '>> GET IN TOUCH',

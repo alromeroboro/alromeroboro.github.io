@@ -7,7 +7,7 @@ export const es: Record<TranslationKey, string> = {
   'nav.contact': 'CONTACTO',
 
   // Hero
-  'hero.name': 'ALBERTO',
+  'hero.name': 'ALBERTO ROMERO',
   'hero.role': 'DESARROLLADOR FRONTEND // ARQUITECTO WEB',
   'hero.welcome': '// BIENVENIDO A MI PORTAFOLIO',
   'hero.cta': '>> CONTÁCTAME',

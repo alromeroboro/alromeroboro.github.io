@@ -9,17 +9,16 @@ const t = useTranslations(locale);
 <BaseLayout locale={locale} title={`${t('hero.name')} | Portfolio`} path="/">
 
   <!-- ── Hero / City backdrop ─────────────────────────────── -->
-  <section class="relative flex flex-col items-center justify-center text-center px-6 py-16 gap-5 city-hero overflow-hidden">
+  <section class="relative flex flex-col items-center text-center px-5 py-2 gap-5 city-hero overflow-hidden">
 
     <div class="city-skyline" aria-hidden="true"></div>
     <div class="city-glow" aria-hidden="true"></div>
 
-    <p
-      class="relative z-10 font-display text-sm tracking-[0.35em] text-fuchsia uppercase"
-      style="text-shadow: 0 0 12px #ff00c8, 0 0 40px #ff00c866;"
-    >
-      {t('hero.role')}
-    </p>
+    <div class="p-3 w-full" style="background: rgba(10,0,14,0.85); box-shadow: 0 0 6px #ff00c833, 0 0 18px #ff00c81a;" aria-hidden="true">
+      <p class="relative z-10 font-display text-fuchsia text-sm tracking-widest uppercase" style="text-shadow: 0 0 6px #ff00c888, 0 0 20px #ff00c844;">
+        {t('hero.role')}
+      </p>
+    </div>
 
     <div class="relative z-10 flex items-center gap-4 w-full max-w-lg">
       <div class="flex-1 h-px bg-gradient-to-r from-transparent to-neon/50"></div>
@@ -129,7 +128,7 @@ const t = useTranslations(locale);
 
 <style>
   .city-hero {
-    min-height: 260px;
+    min-height: 400px;
     background:
       linear-gradient(to bottom, rgba(5,8,16,0.5) 0%, transparent 40%),
       linear-gradient(to top, rgba(0,255,255,0.07) 0%, transparent 50%);
