@@ -76,7 +76,7 @@ const t = useTranslations(locale);
       </div>
       <a
         href="/projects"
-        class="mt-1 px-4 mx-6 py-1.5 border border-neon/60 text-neon text-[10px] tracking-widest uppercase text-center hover:bg-neon/10 transition-colors"
+        class="mt-1 px-4 mx-6 py-1.5 border border-neon/60 text-neon text-[10px] tracking-widest uppercase text-center btn-charge btn-charge-neon"
         style="box-shadow: 0 0 8px #00ffff22;"
       >
         {t('panels.projects.cta')}
@@ -138,7 +138,7 @@ const t = useTranslations(locale);
           href="https://github.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 py-1.5 text-center border border-neon/50 text-neon text-[10px] tracking-widest uppercase hover:bg-neon/10 transition-colors"
+          class="flex-1 py-1.5 text-center border border-neon/50 text-neon text-[10px] tracking-widest uppercase btn-charge btn-charge-neon"
           style="box-shadow: 0 0 8px #00ffff22;"
         >
           CONNECT
@@ -147,7 +147,7 @@ const t = useTranslations(locale);
           href="https://linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex-1 py-1.5 text-center border border-fuchsia/50 text-fuchsia text-[10px] tracking-widest uppercase hover:bg-fuchsia/10 transition-colors"
+          class="flex-1 py-1.5 text-center border border-fuchsia/50 text-fuchsia text-[10px] tracking-widest uppercase btn-charge btn-charge-fuchsia"
           style="box-shadow: 0 0 8px #ff00c822;"
         >
           SEND MESSAGE
@@ -159,6 +159,48 @@ const t = useTranslations(locale);
 </BaseLayout>
 
 <style>
+  /* ── Charge sweep button ─────────────────────────────── */
+  .btn-charge {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: box-shadow 0.4s ease, border-color 0.35s ease, color 0.2s ease;
+  }
+
+  .btn-charge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-charge:hover::before { transform: scaleX(1); }
+
+  /* Cyan variant */
+  .btn-charge-neon::before {
+    background: linear-gradient(90deg, rgba(0,255,255,0.18) 0%, rgba(0,255,255,0.08) 100%);
+  }
+  .btn-charge-neon:hover {
+    border-color: rgba(0,255,255,0.85);
+    color: #ffffff;
+    text-shadow: 0 0 8px #00ffff;
+    box-shadow: 0 0 18px rgba(0,255,255,0.45), 0 0 40px rgba(0,255,255,0.15);
+  }
+
+  /* Fuchsia variant */
+  .btn-charge-fuchsia::before {
+    background: linear-gradient(90deg, rgba(255,0,200,0.18) 0%, rgba(255,0,200,0.08) 100%);
+  }
+  .btn-charge-fuchsia:hover {
+    border-color: rgba(255,0,200,0.85);
+    color: #ffffff;
+    text-shadow: 0 0 8px #ff00c8;
+    box-shadow: 0 0 18px rgba(255,0,200,0.45), 0 0 40px rgba(255,0,200,0.15);
+  }
+
   /* ── City banner ─────────────────────────────────────── */
   .noise-grain {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
