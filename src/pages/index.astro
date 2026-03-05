@@ -29,24 +29,33 @@ const t = useTranslations(locale);
       </p>
     </div>
 
-    <!-- Welcome line with decorative rules -->
-    <div class="relative z-10 flex items-center gap-4 w-full max-w-lg">
-      <div class="flex-1 h-px bg-gradient-to-r from-transparent to-neon/50"></div>
+    <!-- Welcome text — standalone row below role -->
+    <div class="relative z-10 flex justify-center items-center gap-4 w-full">
+      <div class="w-16 h-px bg-linear-to-r from-transparent to-neon/50"></div>
       <span class="text-[10px] tracking-[0.3em] text-muted/70 whitespace-nowrap">
         {t('hero.welcome')}
       </span>
-      <div class="flex-1 h-px bg-gradient-to-l from-transparent to-fuchsia/50"></div>
+      <div class="w-16 h-px bg-linear-to-l from-transparent to-fuchsia/50"></div>
     </div>
 
-    <!-- CTA button — accent red bordered (matches reference) -->
-    <a
-      href="#contact"
-      class="relative z-10 cta-btn px-8 py-2.5 text-accent text-xs tracking-[0.2em] uppercase font-body overflow-hidden group"
-      style="border: 1px solid #ff003c; box-shadow: 0 0 16px #ff003c55, inset 0 0 14px #ff003c11;"
-    >
-      <span class="relative z-10">{t('hero.cta')}</span>
-      <div class="cta-fill absolute inset-0 bg-accent/10 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></div>
-    </a>
+    <!-- CTA panel -->
+    <div class="relative z-10 panel-holo border border-neon/30 flex justify-center items-center w-full px-6 py-3"
+         style="background: rgba(0,10,18,0.85);">
+      <!-- Corner brackets -->
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-neon/70"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/40"></div>
+      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon/70"></div>
+
+      <a
+        href="#contact"
+        class="cta-btn px-8 py-2.5 text-accent text-xs tracking-[0.2em] uppercase font-body overflow-hidden group relative"
+        style="border: 1px solid #ff003c; box-shadow: 0 0 16px #ff003c55, inset 0 0 14px #ff003c11;"
+      >
+        <span class="relative z-10">{t('hero.cta')}</span>
+        <div class="cta-fill absolute inset-0 bg-accent/10 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></div>
+      </a>
+    </div>
   </section>
 
   <!-- ── Info panels ──────────────────────────────────────── -->
@@ -162,9 +171,7 @@ const t = useTranslations(locale);
   .city-hero {
     min-height: 400px;
     background:
-      /* Top dark sky gradient */
       linear-gradient(to bottom, rgba(5,8,16,0.6) 0%, transparent 35%),
-      /* Bottom ambient glow */
       linear-gradient(to top, rgba(0,255,255,0.06) 0%, transparent 55%);
   }
 
