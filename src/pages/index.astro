@@ -106,8 +106,8 @@ const t = useTranslations(locale);
         </p>
       </div>
       <div class="mt-auto h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent mx-6"></div>
-      <a href="/about" class="mx-6 text-[10px] tracking-widest text-fuchsia hover:text-white transition-colors" style="text-shadow: 0 0 8px #ff00c866;">
-        {t('nav.about')} &gt;&gt;
+      <a href="/about" class="mx-6 py-1 text-[16px] px-1 tracking-widest text-fuchsia btn-charge-link btn-charge-link-fuchsia" style="text-shadow: 0 0 8px #ff00c866;">
+        {t('nav.about')}<span class="charge-arrows">&gt;&gt;&gt;&gt;</span>
       </a>
     </div>
 
@@ -178,6 +178,48 @@ const t = useTranslations(locale);
   }
 
   .btn-charge:hover::before { transform: scaleX(1); }
+
+  /* Text-link charge variant */
+  .btn-charge-link {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color 0.2s ease, text-shadow 0.35s ease;
+  }
+
+  .btn-charge-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-charge-link:hover::before { transform: scaleX(1); }
+
+  .btn-charge-link-fuchsia::before {
+    background: linear-gradient(90deg, rgba(255,0,200,0.20) 0%, rgba(255,0,200,0.06) 100%);
+  }
+  .btn-charge-link-fuchsia:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff00c8, 0 0 24px #ff00c866;
+  }
+
+  /* Charging arrows */
+  .charge-arrows {
+    display: inline-block;
+    margin-left: 0.3em;
+    letter-spacing: -0.05em;
+    transition: letter-spacing 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0.7;
+  }
+
+  a:hover .charge-arrows {
+    letter-spacing: 0.12em;
+    opacity: 1;
+  }
 
   /* Cyan variant */
   .btn-charge-neon::before {
