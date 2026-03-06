@@ -3,6 +3,7 @@ dist/
 # generated types
 .astro/
 .claude/
+.vscode/
 
 # dependencies
 node_modules/
@@ -27,3 +28,4 @@ pnpm-debug.log*
 .gitignore
 CLAUDE.MD
 SPEC.MD
+*.CLAUDE.MD
