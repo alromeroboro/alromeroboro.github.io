@@ -14,10 +14,14 @@ export default function RainEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    const dropCount = () => (window.innerWidth < 640 ? 100 : 260);
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -26,7 +30,7 @@ export default function RainEffect() {
     resize();
     window.addEventListener('resize', resize);
 
-    const drops: RainDrop[] = Array.from({ length: 260 }, () => {
+    const drops: RainDrop[] = Array.from({ length: dropCount() }, () => {
       const rand = Math.random();
       return {
         x: Math.random() * window.innerWidth,

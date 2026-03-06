@@ -52,13 +52,13 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
     <div class="scanlines" aria-hidden="true"></div>
 
     <!-- ─── HEADER ───────────────────────────────────────────── -->
-    <header class="relative z-10 grid grid-cols-[1fr_auto_1fr] items-start px-6 pt-4 pb-3 border-b border-neon/20 gap-4 mt-4 mb-3 ml-4 mr-4 shadow-neon/10">
+    <header class="relative z-10 flex flex-col items-center sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-start px-4 sm:px-6 pt-4 pb-3 border-b border-neon/20 gap-2 sm:gap-4 mt-4 mb-3 mx-4 shadow-neon/10">
       <!-- Corner decorations -->
       <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-neon/60" aria-hidden="true"></div>
       <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-fuchsia/60" aria-hidden="true"></div>
 
       <!-- Left: status readouts -->
-      <div class="flex flex-col gap-1 pt-1">
+      <div class="hidden sm:flex flex-col gap-1 pt-1">
         <div class="flex items-center gap-2 text-[10px] tracking-widest text-neon text-glow-neon uppercase">
           <span class="text-fuchsia text-[10px] leading-none" aria-hidden="true"
                 style="text-shadow: 0 0 6px #ff00c8, 0 0 18px #ff00c866;">◈</span>
@@ -75,7 +75,7 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
       <div class="flex flex-col items-center gap-1 self-center">
         <div class="relative">
           <!-- Base layer -->
-          <span class="name-main font-name font-bold text-[3rem] leading-none tracking-[0.18em] text-neon uppercase block">
+          <span class="name-main font-name font-bold text-2xl sm:text-[3rem] leading-none tracking-[0.18em] text-neon uppercase block">
             {t('hero.name')}
           </span>
         </div>
@@ -92,8 +92,8 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
       </div>
 
       <!-- Right: sys date + lang toggle -->
-      <div class="flex flex-col items-end gap-2 pt-1">
-        <div class="text-right">
+      <div class="flex flex-col items-center sm:items-end gap-2 pt-1">
+        <div class="hidden sm:block text-right">
           <div class="text-[10px] tracking-widest text-neon/70 uppercase">SYS&gt; {sysDate}</div>
           <div class="text-[10px] tracking-widest text-muted/40 uppercase">MADRID</div>
         </div>
@@ -107,7 +107,7 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
     </main>
 
     <!-- ─── FOOTER ────────────────────────────────────────────── -->
-    <footer class="relative z-10 px-20 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-between items-center">
+    <footer class="relative z-10 px-4 sm:px-10 md:px-20 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-between items-center">
       <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-fuchsia/50" aria-hidden="true"></div>
       <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon/50" aria-hidden="true"></div>
       <div class="inline-block transform -skew-x-25 py-1 px-3 border border-neon/50">
@@ -190,6 +190,13 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
     top: 40%;
     left: 30%;
     animation-delay: 2s;
+  }
+
+  /* ── Orbs: shrink on mobile ─────────────────────────── */
+  @media (max-width: 640px) {
+    .orb-cyan    { width: 400px; height: 300px; }
+    .orb-fuchsia { width: 300px; height: 250px; }
+    .orb-blue    { width: 200px; height: 200px; }
   }
 
   /* ── CRT Scanlines ──────────────────────────────────── */

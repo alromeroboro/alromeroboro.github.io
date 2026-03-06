@@ -23,7 +23,7 @@ const t = useTranslations(locale);
     <div class="city-glow" aria-hidden="true"></div>
 
     <!-- Role tagline — fuchsia -->
-    <div class="p-3 self-stretch mx-4" style="background: rgba(10,0,14,0.85); box-shadow: 0 0 6px #ff00c833, 0 0 18px #ff00c81a;" aria-hidden="true">
+    <div class="p-2 sm:p-3 self-stretch mx-2 sm:mx-4" style="background: rgba(10,0,14,0.85); box-shadow: 0 0 6px #ff00c833, 0 0 18px #ff00c81a;" aria-hidden="true">
       <p class="relative z-10 font-display text-fuchsia text-sm tracking-widest uppercase text-center w-full" style="text-shadow: 0 0 6px #ff00c888, 0 0 20px #ff00c844;">
         {t('hero.role')}
       </p>
@@ -37,15 +37,15 @@ const t = useTranslations(locale);
     </div>
 
     <!-- City banner -->
-    <div class="relative z-10 w-full -mt-[10px] overflow-hidden city-banner"
-         style="height: 200px; background-image: url('/images/callao.png'); background-size: 100% auto; background-position: bottom; border-top: 1px solid rgba(0,255,255,0.35); border-bottom: 1px solid rgba(0,255,255,0.35); box-shadow: 0 -1px 8px rgba(0,255,255,0.15), 0 1px 8px rgba(0,255,255,0.15);">
+    <div class="relative z-10 w-full -mt-[10px] overflow-hidden city-banner h-[120px] sm:h-[200px]"
+         style="background-image: url('/images/callao.png'); background-size: 100% auto; background-position: bottom; border-top: 1px solid rgba(0,255,255,0.35); border-bottom: 1px solid rgba(0,255,255,0.35); box-shadow: 0 -1px 8px rgba(0,255,255,0.15), 0 1px 8px rgba(0,255,255,0.15);">
       <!-- Noise grain overlay -->
       <div class="noise-grain absolute inset-0 pointer-events-none"></div>
     </div>
   </section>
 
   <!-- ── Info panels ──────────────────────────────────────── -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 px-6 pb-2 pt-2">
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 px-3 sm:px-6 pb-2 pt-2">
 
     <!-- PROJECTS panel — cyan -->
     <div class="panel-holo border border-neon/30 flex flex-col gap-3 relative pb-2" style="background: rgba(0,10,18,0.85);">
@@ -55,12 +55,12 @@ const t = useTranslations(locale);
       <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
       <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon/70"></div>
 
-      <div class="pt-2 pb-2 px-6 panel-holo border border-neon/30" >
+      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-neon/30" >
         <h2 class="font-display text-neon text-sm tracking-widest text-glow-neon">
           &#x25A0;&#x25A0; {t('panels.projects.title')}
         </h2>
       </div>
-      <div class="text-xs text-muted/70 space-y-1 px-6">
+      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
         <p>
           <span class="text-muted/40">LAST DEPLOY: </span>
           <span class="text-muted">NEXUS_01</span>
@@ -76,7 +76,7 @@ const t = useTranslations(locale);
       </div>
       <a
         href="/projects"
-        class="mt-1 px-4 mx-6 py-1.5 border border-neon/60 text-neon text-[10px] tracking-widest uppercase text-center btn-charge btn-charge-neon"
+        class="mt-1 px-4 mx-3 sm:mx-6 py-1.5 border border-neon/60 text-neon text-[10px] tracking-widest uppercase text-center whitespace-nowrap btn-charge btn-charge-neon"
         style="box-shadow: 0 0 8px #00ffff22;"
       >
         {t('panels.projects.cta')}
@@ -90,12 +90,12 @@ const t = useTranslations(locale);
       <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-fuchsia/40"></div>
       <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/70"></div>
 
-      <div class="pt-2 pb-2 px-6 panel-holo border border-fuchsia/30">
+      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-fuchsia/30">
         <h2 class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">
           &#x25A0;&#x25A0; {t('panels.about.title')}
         </h2>
       </div>
-      <div class="text-xs text-muted/70 space-y-1 px-6">
+      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
         <p>
           <span class="text-muted/40">SKILLS: </span>
           <span class="text-muted">JAVASCRIPT / REACT</span>
@@ -105,8 +105,8 @@ const t = useTranslations(locale);
           <span class="text-muted">5+ YEARS</span>
         </p>
       </div>
-      <div class="mt-auto h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent mx-6"></div>
-      <a href="/about" class="mx-6 py-1 text-[16px] px-1 tracking-widest text-fuchsia btn-charge-link btn-charge-link-fuchsia" style="text-shadow: 0 0 8px #ff00c866;">
+      <div class="mt-auto h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent mx-3 sm:mx-6"></div>
+      <a href="/about" class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-fuchsia btn-charge-link btn-charge-link-fuchsia" style="text-shadow: 0 0 8px #ff00c866;">
         {t('nav.about')}<span class="charge-arrows">&gt;&gt;</span>
       </a>
     </div>
@@ -118,12 +118,12 @@ const t = useTranslations(locale);
       <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
       <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/40"></div>
 
-      <div class="pt-2 pb-2 px-6 panel-holo border border-neon/25">
+      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-neon/25">
         <h2 class="font-display text-neon text-sm tracking-widest text-glow-neon">
           &#x25A0;&#x25A0;&#x25A0; {t('panels.contact.title')}
         </h2>
       </div>
-      <div class="text-xs text-muted/70 space-y-1 px-6">
+      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
         <p>
           <span class="text-muted/40">LINKS: </span>
           <span class="text-muted">GITHUB / LINKEDIN</span>
@@ -133,7 +133,7 @@ const t = useTranslations(locale);
           <span class="text-neon">AVAILABLE</span>
         </p>
       </div>
-      <div class="flex gap-3 mt-auto mx-6">
+      <div class="flex gap-3 mt-auto mx-3 sm:mx-6">
         <a
           href="https://github.com/alromeroboro"
           target="_blank"
@@ -250,6 +250,16 @@ const t = useTranslations(locale);
     background-size: 256px 256px;
     opacity: 0.38;
     mix-blend-mode: overlay;
+  }
+
+  /* ── Mobile responsive ──────────────────────────────── */
+  @media (max-width: 640px) {
+    .city-hero    { min-height: 200px; }
+    .city-skyline { height: 140px; }
+    .city-glow    { height: 80px; }
+    .fog-cyan     { bottom: 90px;  height: 126px; }
+    .fog-fuchsia  { bottom: 66px;  height: 114px; }
+    .fog-amber    { bottom: 42px;  height: 96px; }
   }
 
   /* ── City hero section ──────────────────────────────── */
