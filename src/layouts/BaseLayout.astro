@@ -107,14 +107,34 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
     </main>
 
     <!-- ─── FOOTER ────────────────────────────────────────────── -->
-    <footer class="relative z-10 px-8 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-between items-center">
+    <footer class="relative z-10 px-20 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-between items-center">
       <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-fuchsia/50" aria-hidden="true"></div>
       <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon/50" aria-hidden="true"></div>
-      <span class="text-neon/70">{t('footer.ready')}</span>
-      <span>{t('footer.protocol')}</span>
-      <span class="text-fuchsia/60">{t('footer.security')}</span>
-      <span>{t('footer.comp')}</span>
-      <span>{t('footer.copyright')}</span>
+      <div class="inline-block transform -skew-x-25 py-1 px-3 border border-neon/50">
+        <div class="transform skew-x-25">
+          <span class="text-neon/70" >{t('footer.ready')}</span>
+        </div>
+      </div>
+      <div class="inline-block transform -skew-x-25 py-1 px-3 border">
+        <div class="transform skew-x-25">
+          <span>{t('footer.protocol')}</span>
+        </div>
+      </div>
+      <div class="inline-block transform -skew-x-25 py-1 px-3 border border-fuchsia/50">
+        <div class="transform skew-x-25">
+          <span class="text-fuchsia/60">{t('footer.security')}</span>
+        </div>
+      </div>
+      <div class="inline-block transform -skew-x-25 py-1 px-3 border">
+        <div class="transform skew-x-25">
+          <span>{t('footer.comp')}</span>
+        </div>
+      </div>
+      <div class="inline-block transform -skew-x-25 py-1 px-3 border">
+        <div class="transform skew-x-25">
+          <span>{t('footer.copyright')}</span>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
