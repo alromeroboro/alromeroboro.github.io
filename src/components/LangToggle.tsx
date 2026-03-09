@@ -11,13 +11,15 @@ export default function LangToggle({ locale, path }: LangToggleProps) {
 
   const [pending, setPending] = useState<'en' | 'es' | null>(null);
 
-  function navigate(e: React.MouseEvent, target: 'en' | 'es') {
+  function handleNavigate(e: React.MouseEvent, target: 'en' | 'es') {
     e.preventDefault();
     if (target === locale) return;
     setPending(target);
-    setTimeout(() => {
-      window.location.href = target === 'en' ? enHref : esHref;
-    }, 380);
+    const href = target === 'en' ? enHref : esHref;
+    setTimeout(async () => {
+      const { navigate } = await import('astro:transitions/client');
+      navigate(href);
+    }, 350);
   }
 
   const activeLocale = (pending ?? locale) as 'en' | 'es';
@@ -116,7 +118,7 @@ export default function LangToggle({ locale, path }: LangToggleProps) {
         {/* EN label */}
         <a
           href={enHref}
-          onClick={(e) => navigate(e, 'en')}
+          onClick={(e) => handleNavigate(e, 'en')}
           aria-current={locale === 'en' ? 'true' : undefined}
           style={{
             flex: 1,
@@ -140,7 +142,7 @@ export default function LangToggle({ locale, path }: LangToggleProps) {
         {/* ES label */}
         <a
           href={esHref}
-          onClick={(e) => navigate(e, 'es')}
+          onClick={(e) => handleNavigate(e, 'es')}
           aria-current={locale === 'es' ? 'true' : undefined}
           style={{
             flex: 1,

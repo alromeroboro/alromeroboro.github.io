@@ -113,3 +113,29 @@
   0%, 100% { opacity: 0.6; }
   50%       { opacity: 1; }
 }
+
+/* ── Page transition: stacked-card lift ───── */
+@keyframes page-lift-out {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-60px) scale(0.97); opacity: 0; }
+}
+@keyframes page-lift-in {
+  0%   { transform: scale(0.98); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes page-drop-out {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.98); opacity: 0; }
+}
+@keyframes page-drop-in {
+  0%   { transform: translateY(-60px) scale(0.97); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0s !important;
+  }
+}

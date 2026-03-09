@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import LangToggle from '../components/LangToggle';
 import RainEffect from '../components/RainEffect';
@@ -16,6 +17,17 @@ const t = useTranslations(locale);
 
 const now = new Date();
 const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2, '0')} / ${String(now.getDate()).padStart(2, '0')}`;
+
+const pageLift = {
+  forwards: {
+    old: [{ name: 'page-lift-out', duration: '0.3s', easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fillMode: 'both' }],
+    new: [{ name: 'page-lift-in', duration: '0.3s', easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fillMode: 'both', delay: '0.05s' }],
+  },
+  backwards: {
+    old: [{ name: 'page-drop-out', duration: '0.3s', easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fillMode: 'both' }],
+    new: [{ name: 'page-drop-in', duration: '0.3s', easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fillMode: 'both', delay: '0.05s' }],
+  },
+};
 ---
 
 <!doctype html>
@@ -25,6 +37,7 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={t('hero.role')} />
     <title>{title}</title>
+    <ClientRouter />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,23 +49,23 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
   <body class="font-body relative overflow-x-hidden">
 
     <!-- Z0: Dark grid background -->
-    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="grid-bg" aria-hidden="true" transition:persist></div>
 
     <!-- Z1: Atmospheric glow orbs -->
-    <div class="glow-orbs" aria-hidden="true">
+    <div class="glow-orbs" aria-hidden="true" transition:persist>
       <div class="orb orb-cyan"></div>
       <div class="orb orb-fuchsia"></div>
       <div class="orb orb-blue"></div>
     </div>
 
     <!-- Z2: Rain canvas (client:load) -->
-    <RainEffect client:load />
+    <RainEffect client:load transition:persist />
 
     <!-- Z3: CRT scanlines overlay -->
-    <div class="scanlines" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true" transition:persist></div>
 
     <!-- ─── HEADER ───────────────────────────────────────────── -->
-    <header class="relative z-10 flex flex-col items-center sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-start px-4 sm:px-6 pt-4 pb-3 border-b border-neon/20 gap-2 sm:gap-4 mt-4 mb-3 mx-4 shadow-neon/10">
+    <header class="relative z-10 flex flex-col items-center sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-start px-4 sm:px-6 pt-4 pb-3 border-b border-neon/20 gap-2 sm:gap-4 mt-4 mb-3 mx-4 shadow-neon/10" transition:name="header" transition:animate="none">
       <!-- Corner decorations -->
       <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-neon/60" aria-hidden="true"></div>
       <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-fuchsia/60" aria-hidden="true"></div>
@@ -102,12 +115,12 @@ const sysDate = `${now.getFullYear()} / ${String(now.getMonth() + 1).padStart(2,
     </header>
 
     <!-- ─── PAGE CONTENT ──────────────────────────────────────── -->
-    <main class="relative z-10">
+    <main class="relative z-10" transition:animate={pageLift}>
       <slot />
     </main>
 
     <!-- ─── FOOTER ────────────────────────────────────────────── -->
-    <footer class="relative z-10 px-4 sm:px-10 md:px-20 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-center items-center">
+    <footer class="relative z-10 px-4 sm:px-10 md:px-20 py-3 border-t border-neon/15 text-[10px] tracking-widest text-muted/50 flex flex-wrap gap-4 justify-center items-center" transition:name="footer" transition:animate="none">
       <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-fuchsia/50" aria-hidden="true"></div>
       <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon/50" aria-hidden="true"></div>
       <div class="inline-block transform -skew-x-25 py-1 px-3 border border-neon/50">
