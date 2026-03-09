@@ -28,7 +28,7 @@ export const en = {
   'panels.contact.links': 'LINKS',
   'panels.contact.status': 'STATUS: AVAILABLE',
   'panels.contact.connect': 'CONNECT',
-  'panels.contact.message': 'SEND MESSAGE',
+  'panels.contact.message': 'SEND',
 
   // Footer
   'footer.ready': '// 1337-READY',

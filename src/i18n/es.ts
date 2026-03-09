@@ -30,7 +30,7 @@ export const es: Record<TranslationKey, string> = {
   'panels.contact.links': 'ENLACES',
   'panels.contact.status': 'ESTADO: DISPONIBLE',
   'panels.contact.connect': 'CONECTAR',
-  'panels.contact.message': 'ENVIAR MENSAJE',
+  'panels.contact.message': 'ENVIAR',
 
   // Footer
   'footer.ready': '// 1337-LISTO',
