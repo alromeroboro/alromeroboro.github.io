@@ -25,6 +25,5 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-CLAUDE.MD
 SPEC.MD
-*.CLAUDE.MD
+*CLAUDE.md

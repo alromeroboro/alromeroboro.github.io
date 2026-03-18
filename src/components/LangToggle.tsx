@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface LangToggleProps {
   locale: string;
   path: string;
@@ -9,20 +7,14 @@ export default function LangToggle({ locale, path }: LangToggleProps) {
   const enHref = path;
   const esHref = `/es${path === '/' ? '' : path}`;
 
-  const [pending, setPending] = useState<'en' | 'es' | null>(null);
-
   function handleNavigate(e: React.MouseEvent, target: 'en' | 'es') {
     e.preventDefault();
     if (target === locale) return;
-    setPending(target);
     const href = target === 'en' ? enHref : esHref;
-    setTimeout(async () => {
-      const { navigate } = await import('astro:transitions/client');
-      navigate(href);
-    }, 350);
+    window.location.href = href;
   }
 
-  const activeLocale = (pending ?? locale) as 'en' | 'es';
+  const activeLocale = locale as 'en' | 'es';
   const isES = activeLocale === 'es';
 
   const neon = '#00ffff';
