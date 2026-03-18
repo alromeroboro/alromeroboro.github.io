@@ -37,6 +37,16 @@ export const en = {
   'footer.comp': 'COMP: 100%',
   'footer.copyright': '© 2026 — ALL RIGHTS RESERVED',
 
+  // Section headings (single-page scroll sections)
+  'sections.about': '// ABOUT ME',
+  'sections.projects': '// PROJECTS',
+  'sections.contact': '// CONTACT',
+  'sections.underConstruction': '// UNDER CONSTRUCTION',
+  'sections.wipText': 'THIS SECTION IS UNDER ACTIVE DEVELOPMENT',
+
+  // Hero scroll CTA
+  'hero.scrollCta': 'SCROLL',
+
   // Lang toggle
   'lang.toggle.en': 'EN',
   'lang.toggle.es': 'ES',

@@ -42,55 +42,28 @@ const t = useTranslations(locale);
       <!-- Noise grain overlay -->
       <div class="noise-grain absolute inset-0 pointer-events-none"></div>
     </div>
+
+    <!-- Scroll CTA -->
+    <div class="relative z-10 mt-1 pb-2">
+      <a href="#about" class="inline-flex flex-col items-center gap-0.5 text-neon/60 hover:text-neon transition-colors duration-300">
+        <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('hero.scrollCta')}</span>
+        <span class="scroll-chevron text-base leading-none">▼</span>
+      </a>
+    </div>
   </section>
 
   <!-- ── Info panels ──────────────────────────────────────── -->
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 px-3 sm:px-6 pb-2 pt-2">
 
-    <!-- PROJECTS panel — cyan -->
-    <a href="/projects" class="panel-projects-link panel-holo border border-neon/30 flex flex-col gap-3 relative pb-2" style="background: rgba(0,10,18,0.85);">
-      <!-- Corner brackets -->
+    <!-- ABOUT ME panel — fuchsia -->
+    <a href="#about" class="panel-about-link panel-holo border border-neon/30 flex flex-col gap-3 relative pb-2" style="background: rgba(0,10,18,0.85);">
       <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-neon/70"></div>
       <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/40"></div>
       <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
       <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon/70"></div>
 
-      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-neon/30" >
+      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-neon/30">
         <h2 class="font-display text-neon text-sm tracking-widest text-glow-neon">
-          &#x25A0;&#x25A0; {t('panels.projects.title')}
-        </h2>
-      </div>
-      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
-        <p>
-          <span class="text-muted/40">LAST DEPLOY: </span>
-          <span class="text-muted">NEXUS_01</span>
-        </p>
-        <p>
-          <span class="text-muted/40">STACK: </span>
-          <span class="text-muted">ASTRO / TS / CSS</span>
-        </p>
-      </div>
-      <!-- Mini project thumbnail placeholder -->
-      <div class="project-thumb w-full h-16 border border-neon/20 flex items-center justify-center overflow-hidden">
-        <div class="thumb-inner w-full h-full"></div>
-      </div>
-      <div
-        class="mt-1 px-4 mx-3 sm:mx-6 py-1.5 border border-neon/60 text-neon text-[10px] tracking-widest uppercase text-center whitespace-nowrap btn-charge btn-charge-neon"
-        style="box-shadow: 0 0 8px #00ffff22;"
-      >
-        {t('panels.projects.cta')}
-      </div>
-    </a>
-
-    <!-- ABOUT ME panel — fuchsia -->
-    <a href="/about" class="panel-about-link panel-holo border border-fuchsia/30 flex flex-col gap-3 relative pb-2" style="background: rgba(10,0,14,0.85);">
-      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/70"></div>
-      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-fuchsia/40"></div>
-      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-fuchsia/40"></div>
-      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/70"></div>
-
-      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-fuchsia/30">
-        <h2 class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">
           &#x25A0;&#x25A0; {t('panels.about.title')}
         </h2>
       </div>
@@ -105,15 +78,46 @@ const t = useTranslations(locale);
         </p>
       </div>
       <div class="mt-auto">
-        <div class="h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
-        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-fuchsia btn-charge-link btn-charge-link-fuchsia" style="text-shadow: 0 0 8px #ff00c866;">
+        <div class="h-px bg-gradient-to-r from-neon/30 via-neon/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
+        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-neon btn-charge-link btn-charge-link-neon" style="text-shadow: 0 0 8px #00ffff66;">
           {t('nav.about')}<span class="charge-arrows">&gt;&gt;</span>
         </span>
       </div>
     </a>
 
-    <!-- CONTACT panel — mixed -->
-    <div id="contact" class="panel-holo border border-neon/25 flex flex-col gap-3 relative pb-2" style="background: rgba(0,8,16,0.85);">
+    <!-- PROJECTS panel — cyan -->
+    <a href="#projects" class="panel-projects-link panel-holo border border-fuchsia/30 flex flex-col gap-3 relative pb-2" style="background: rgba(10,0,14,0.85);">
+      <!-- Corner brackets -->
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/70"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-fuchsia/40"></div>
+      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-fuchsia/40"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/70"></div>
+
+      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-fuchsia/30">
+        <h2 class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">
+          &#x25A0;&#x25A0; {t('panels.projects.title')}
+        </h2>
+      </div>
+      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
+        <p>
+          <span class="text-muted/40">LAST DEPLOY: </span>
+          <span class="text-muted">NEXUS_01</span>
+        </p>
+        <p>
+          <span class="text-muted/40">STACK: </span>
+          <span class="text-muted">ASTRO / TS / CSS</span>
+        </p>
+      </div>
+      <div class="mt-auto">
+        <div class="h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
+        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-fuchsia btn-charge-link btn-charge-link-fuchsia" style="text-shadow: 0 0 8px #ff00c866;">
+          {t('nav.projects')}<span class="charge-arrows">&gt;&gt;</span>
+        </span>
+      </div>
+    </a>
+
+    <!-- CONTACT panel — mixed (nav link to #contact section) -->
+    <a href="#contact" class="panel-contact-link panel-holo border border-neon/25 flex flex-col gap-3 relative pb-2" style="background: rgba(0,8,16,0.85);">
       <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/60"></div>
       <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/60"></div>
       <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
@@ -124,7 +128,70 @@ const t = useTranslations(locale);
           &#x25A0;&#x25A0;&#x25A0; {t('panels.contact.title')}
         </h2>
       </div>
-      <div class="flex flex-row flex-1 gap-2 mx-3 sm:mx-6 mb-2">
+      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
+        <p>
+          <span class="text-muted/40">GITHUB: </span>
+          <span class="text-muted">ALROMEROBORO</span>
+        </p>
+        <p>
+          <span class="text-muted/40">LINKEDIN: </span>
+          <span class="text-muted">ALROMEROBORO</span>
+        </p>
+      </div>
+      <div class="mt-auto">
+        <div class="h-px bg-gradient-to-r from-neon/30 via-neon/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
+        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-neon btn-charge-link btn-charge-link-neon" style="text-shadow: 0 0 8px #00ffff66;">
+          {t('nav.contact')}<span class="charge-arrows">&gt;&gt;</span>
+        </span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ── About section ─────────────────────────────────── -->
+  <section id="about" class="relative py-16 px-3 sm:px-6 section-cyan-haze">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-display text-neon text-lg sm:text-xl tracking-widest text-glow-neon">{t('sections.about')}</span>
+        <div class="flex-1 h-px bg-gradient-to-r from-neon/40 to-transparent"></div>
+      </div>
+      <div class="relative border border-amber/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(12,6,0,0.85); box-shadow: 0 0 18px rgba(255,140,0,0.12);">
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/70"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/40"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/40"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/70"></div>
+        <p class="font-display text-amber text-sm tracking-widest text-glow-amber">{t('sections.underConstruction')}</p>
+        <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects section ──────────────────────────────── -->
+  <section id="projects" class="relative py-16 px-3 sm:px-6 section-fuchsia-haze">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-display text-fuchsia text-lg sm:text-xl tracking-widest text-glow-fuchsia">{t('sections.projects')}</span>
+        <div class="flex-1 h-px bg-gradient-to-r from-fuchsia/40 to-transparent"></div>
+      </div>
+      <div class="relative border border-amber/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(0,10,18,0.85); box-shadow: 0 0 18px rgba(255,140,0,0.12);">
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/70"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/40"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/40"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/70"></div>
+        <p class="font-display text-amber text-sm tracking-widest text-glow-amber">{t('sections.underConstruction')}</p>
+        <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact section ───────────────────────────────── -->
+  <section id="contact" class="relative py-16 px-3 sm:px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="font-display text-neon text-lg sm:text-xl tracking-widest text-glow-neon">{t('sections.contact')}</span>
+        <div class="flex-1 h-px bg-gradient-to-r from-neon/40 to-transparent"></div>
+      </div>
+      <p class="text-xs text-muted/60 tracking-widest mb-10 text-center">{t('hero.cta')}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
         <a
           href="https://github.com/alromeroboro"
           target="_blank"
@@ -172,24 +239,23 @@ const t = useTranslations(locale);
 <style>
   /* ── Projects panel link ─────────────────────────────── */
   .panel-projects-link {
-    display: block;
     text-decoration: none;
     transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.25s ease;
   }
   .panel-projects-link:hover {
     animation-play-state: paused;
-    border-color: rgba(0,255,255,0.65);
-    box-shadow: 0 0 22px rgba(0,255,255,0.18), 0 0 48px rgba(0,255,255,0.07);
+    border-color: rgba(255,0,200,0.65);
+    box-shadow: 0 0 22px rgba(255,0,200,0.18), 0 0 48px rgba(255,0,200,0.07);
     transform: translateY(-2px);
   }
-  .panel-projects-link:hover .btn-charge-neon {
-    border-color: rgba(0,255,255,0.85);
+  .panel-projects-link:hover .btn-charge-link-fuchsia {
     color: #ffffff;
-    text-shadow: 0 0 8px #00ffff;
-    box-shadow: 0 0 18px rgba(0,255,255,0.45), 0 0 40px rgba(0,255,255,0.15);
+    text-shadow: 0 0 10px #ff00c8, 0 0 24px #ff00c866;
   }
-  .panel-projects-link:hover .btn-charge-neon::before {
-    transform: scaleX(1);
+  .panel-projects-link:hover .btn-charge-link-fuchsia::before { transform: scaleX(1); }
+  .panel-projects-link:hover .charge-arrows {
+    letter-spacing: 0.12em;
+    opacity: 1;
   }
 
   /* ── About panel link ─────────────────────────────── */
@@ -199,8 +265,8 @@ const t = useTranslations(locale);
   }
   .panel-about-link:hover {
     animation-play-state: paused;
-    border-color: rgba(255,0,200,0.65);
-    box-shadow: 0 0 22px rgba(255,0,200,0.18), 0 0 48px rgba(255,0,200,0.07);
+    border-color: rgba(0,255,255,0.65);
+    box-shadow: 0 0 22px rgba(0,255,255,0.18), 0 0 48px rgba(0,255,255,0.07);
     transform: translateY(-2px);
   }
 
@@ -247,9 +313,9 @@ const t = useTranslations(locale);
   .btn-charge-link-fuchsia::before {
     background: linear-gradient(90deg, rgba(255,0,200,0.20) 0%, rgba(255,0,200,0.06) 100%);
   }
-  .panel-about-link:hover .btn-charge-link-fuchsia {
+  .panel-about-link:hover .btn-charge-link-neon {
     color: #ffffff;
-    text-shadow: 0 0 10px #ff00c8, 0 0 24px #ff00c866;
+    text-shadow: 0 0 10px #00ffff, 0 0 24px #00ffff66;
   }
 
   /* Charging arrows */
@@ -511,6 +577,53 @@ const t = useTranslations(locale);
     .fog-cyan     { bottom: 90px;  height: 126px; }
     .fog-fuchsia  { bottom: 66px;  height: 114px; }
     .fog-amber    { bottom: 42px;  height: 96px; }
+  }
+
+  /* ── Contact panel link ──────────────────────────────── */
+  .panel-contact-link {
+    text-decoration: none;
+    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.25s ease;
+  }
+  .panel-contact-link:hover {
+    animation-play-state: paused;
+    border-color: rgba(0,255,255,0.65);
+    box-shadow: 0 0 22px rgba(0,255,255,0.18), 0 0 48px rgba(0,255,255,0.07);
+    transform: translateY(-2px);
+  }
+  .panel-contact-link:hover .btn-charge-link-neon {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 24px #00ffff66;
+  }
+  .panel-contact-link:hover .btn-charge-link-neon::before { transform: scaleX(1); }
+  .panel-contact-link:hover .charge-arrows {
+    letter-spacing: 0.12em;
+    opacity: 1;
+  }
+
+  /* Neon text-link charge variant */
+  .btn-charge-link-neon::before {
+    background: linear-gradient(90deg, rgba(0,255,255,0.20) 0%, rgba(0,255,255,0.06) 100%);
+  }
+
+  /* ── Scroll chevron animation ───────────────────────── */
+  .scroll-chevron {
+    animation: chevron-pulse 2s ease-in-out infinite;
+  }
+  @keyframes chevron-pulse {
+    0%, 100% { opacity: 0.5; transform: translateY(0); }
+    50%       { opacity: 1;   transform: translateY(3px); }
+  }
+
+  /* ── Scroll section atmospheric hazes ──────────────── */
+  .section-fuchsia-haze {
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 30%, rgba(255,0,200,0.05) 0%, transparent 100%),
+      radial-gradient(ellipse 50% 35% at 85% 70%, rgba(255,0,200,0.03) 0%, transparent 100%);
+  }
+  .section-cyan-haze {
+    background:
+      radial-gradient(ellipse 60% 40% at 85% 30%, rgba(0,255,255,0.05) 0%, transparent 100%),
+      radial-gradient(ellipse 50% 35% at 15% 70%, rgba(0,255,255,0.03) 0%, transparent 100%);
   }
 
 </style>

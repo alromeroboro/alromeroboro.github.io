@@ -39,6 +39,16 @@ export const es: Record<TranslationKey, string> = {
   'footer.comp': 'COMP: 100%',
   'footer.copyright': '© 2026 — TODOS LOS DERECHOS RESERVADOS',
 
+  // Section headings (single-page scroll sections)
+  'sections.about': '// SOBRE MÍ',
+  'sections.projects': '// PROYECTOS',
+  'sections.contact': '// CONTACTO',
+  'sections.underConstruction': '// EN CONSTRUCCIÓN',
+  'sections.wipText': 'ESTA SECCIÓN ESTÁ EN DESARROLLO ACTIVO',
+
+  // Hero scroll CTA
+  'hero.scrollCta': 'SCROLL',
+
   // Lang toggle
   'lang.toggle.en': 'EN',
   'lang.toggle.es': 'ES',
