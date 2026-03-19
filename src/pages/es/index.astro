@@ -164,9 +164,12 @@ const skillIcons: Record<string, string> = {
         <div class="p-6 sm:p-8 flex flex-col gap-5">
           <!-- Name + role -->
           <div>
-            <p class="font-name text-neon text-xl sm:text-2xl tracking-widest text-glow-neon leading-tight">
-              {t('hero.name')}
-            </p>
+            <div class="flex items-center gap-3">
+              <p class="font-name text-neon text-xl sm:text-2xl tracking-widest text-glow-neon leading-tight">
+                {t('hero.name')}
+              </p>
+              <img src="/images/logo.png" alt="AR" width="36" height="36" class="logo-mark" />
+            </div>
             <p class="font-display text-fuchsia text-xs tracking-[0.3em] mt-1 uppercase"
                style="text-shadow: 0 0 8px rgba(255,0,200,0.5);">
               FRONTEND DEVELOPER
