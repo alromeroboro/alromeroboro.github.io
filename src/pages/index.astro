@@ -67,101 +67,6 @@ const t = useTranslations(locale);
     </div>
   </section>
 
-  <!-- ── Info panels ──────────────────────────────────────── -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 px-3 sm:px-6 pb-2 pt-2">
-
-    <!-- ABOUT ME panel — fuchsia -->
-    <a href="#about" class="panel-about-link panel-holo border border-neon/30 flex flex-col gap-3 relative pb-2" style="background: rgba(0,10,18,0.85);">
-      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-neon/70"></div>
-      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/40"></div>
-      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
-      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon/70"></div>
-
-      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-neon/30">
-        <h2 class="font-display text-neon text-sm tracking-widest text-glow-neon">
-          &#x25A0;&#x25A0; {t('panels.about.title')}
-        </h2>
-      </div>
-      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
-        <p>
-          <span class="text-muted/40">SKILLS: </span>
-          <span class="text-muted">JAVASCRIPT / REACT</span>
-        </p>
-        <p>
-          <span class="text-muted/40">EXPERIENCE: </span>
-          <span class="text-muted">5+ YEARS</span>
-        </p>
-      </div>
-      <div class="mt-auto">
-        <div class="h-px bg-gradient-to-r from-neon/30 via-neon/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
-        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-neon btn-charge-link btn-charge-link-neon" style="text-shadow: 0 0 8px #00ffff66;">
-          {t('nav.about')}<span class="charge-arrows">&gt;&gt;</span>
-        </span>
-      </div>
-    </a>
-
-    <!-- PROJECTS panel — cyan -->
-    <a href="#projects" class="panel-projects-link panel-holo border border-fuchsia/30 flex flex-col gap-3 relative pb-2" style="background: rgba(10,0,14,0.85);">
-      <!-- Corner brackets -->
-      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/70"></div>
-      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-fuchsia/40"></div>
-      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-fuchsia/40"></div>
-      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/70"></div>
-
-      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-fuchsia/30">
-        <h2 class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">
-          &#x25A0;&#x25A0; {t('panels.projects.title')}
-        </h2>
-      </div>
-      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
-        <p>
-          <span class="text-muted/40">LAST DEPLOY: </span>
-          <span class="text-muted">NEXUS_01</span>
-        </p>
-        <p>
-          <span class="text-muted/40">STACK: </span>
-          <span class="text-muted">ASTRO / TS / CSS</span>
-        </p>
-      </div>
-      <div class="mt-auto">
-        <div class="h-px bg-gradient-to-r from-fuchsia/30 via-fuchsia/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
-        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-fuchsia btn-charge-link btn-charge-link-fuchsia" style="text-shadow: 0 0 8px #ff00c866;">
-          {t('nav.projects')}<span class="charge-arrows">&gt;&gt;</span>
-        </span>
-      </div>
-    </a>
-
-    <!-- CONTACT panel — mixed (nav link to #contact section) -->
-    <a href="#contact" class="panel-contact-link panel-holo border border-neon/25 flex flex-col gap-3 relative pb-2" style="background: rgba(0,8,16,0.85);">
-      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-fuchsia/60"></div>
-      <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon/60"></div>
-      <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon/40"></div>
-      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-fuchsia/40"></div>
-
-      <div class="pt-2 pb-2 px-3 sm:px-6 panel-holo border border-neon/25">
-        <h2 class="font-display text-neon text-sm tracking-widest text-glow-neon">
-          &#x25A0;&#x25A0;&#x25A0; {t('panels.contact.title')}
-        </h2>
-      </div>
-      <div class="text-xs text-muted/70 space-y-1 px-3 sm:px-6">
-        <p>
-          <span class="text-muted/40">GITHUB: </span>
-          <span class="text-muted">ALROMEROBORO</span>
-        </p>
-        <p>
-          <span class="text-muted/40">LINKEDIN: </span>
-          <span class="text-muted">ALROMEROBORO</span>
-        </p>
-      </div>
-      <div class="mt-auto">
-        <div class="h-px bg-gradient-to-r from-neon/30 via-neon/10 to-transparent mx-3 sm:mx-6 mb-1"></div>
-        <span class="mx-3 sm:mx-6 py-1 text-sm sm:text-[16px] px-1 tracking-widest text-neon btn-charge-link btn-charge-link-neon" style="text-shadow: 0 0 8px #00ffff66;">
-          {t('nav.contact')}<span class="charge-arrows">&gt;&gt;</span>
-        </span>
-      </div>
-    </a>
-  </section>
-
   <!-- ── About section ─────────────────────────────────── -->
   <section id="about" class="relative py-16 px-3 sm:px-6 section-cyan-haze">
     <div class="max-w-5xl mx-auto">
@@ -252,39 +157,6 @@ const t = useTranslations(locale);
 </BaseLayout>
 
 <style>
-  /* ── Projects panel link ─────────────────────────────── */
-  .panel-projects-link {
-    text-decoration: none;
-    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.25s ease;
-  }
-  .panel-projects-link:hover {
-    animation-play-state: paused;
-    border-color: rgba(255,0,200,0.65);
-    box-shadow: 0 0 22px rgba(255,0,200,0.18), 0 0 48px rgba(255,0,200,0.07);
-    transform: translateY(-2px);
-  }
-  .panel-projects-link:hover .btn-charge-link-fuchsia {
-    color: #ffffff;
-    text-shadow: 0 0 10px #ff00c8, 0 0 24px #ff00c866;
-  }
-  .panel-projects-link:hover .btn-charge-link-fuchsia::before { transform: scaleX(1); }
-  .panel-projects-link:hover .charge-arrows {
-    letter-spacing: 0.12em;
-    opacity: 1;
-  }
-
-  /* ── About panel link ─────────────────────────────── */
-  .panel-about-link {
-    text-decoration: none;
-    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.25s ease;
-  }
-  .panel-about-link:hover {
-    animation-play-state: paused;
-    border-color: rgba(0,255,255,0.65);
-    box-shadow: 0 0 22px rgba(0,255,255,0.18), 0 0 48px rgba(0,255,255,0.07);
-    transform: translateY(-2px);
-  }
-
   /* ── Charge sweep button ─────────────────────────────── */
   .btn-charge {
     position: relative;
@@ -304,48 +176,6 @@ const t = useTranslations(locale);
   }
 
   .btn-charge:hover::before { transform: scaleX(1); }
-
-  /* Text-link charge variant */
-  .btn-charge-link {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    transition: color 0.2s ease, text-shadow 0.35s ease;
-  }
-
-  .btn-charge-link::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .panel-about-link:hover .btn-charge-link::before { transform: scaleX(1); }
-
-  .btn-charge-link-fuchsia::before {
-    background: linear-gradient(90deg, rgba(255,0,200,0.20) 0%, rgba(255,0,200,0.06) 100%);
-  }
-  .panel-about-link:hover .btn-charge-link-neon {
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ffff, 0 0 24px #00ffff66;
-  }
-
-  /* Charging arrows */
-  .charge-arrows {
-    display: inline-block;
-    margin-left: 0.3em;
-    letter-spacing: -0.05em;
-    transition: letter-spacing 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-    opacity: 0.7;
-  }
-
-  .panel-about-link:hover .charge-arrows {
-    letter-spacing: 0.12em;
-    opacity: 1;
-  }
 
   /* Cyan variant */
   .btn-charge-neon::before {
@@ -380,7 +210,7 @@ const t = useTranslations(locale);
 
   /* ── City hero section ──────────────────────────────── */
   .city-hero {
-    min-height: 400px;
+    min-height: 360px;
     background:
       linear-gradient(to bottom, rgba(5,8,16,0.6) 0%, transparent 35%),
       linear-gradient(to top, rgba(0,255,255,0.06) 0%, transparent 55%);
@@ -592,32 +422,6 @@ const t = useTranslations(locale);
     .fog-cyan     { bottom: 90px;  height: 126px; }
     .fog-fuchsia  { bottom: 66px;  height: 114px; }
     .fog-amber    { bottom: 42px;  height: 96px; }
-  }
-
-  /* ── Contact panel link ──────────────────────────────── */
-  .panel-contact-link {
-    text-decoration: none;
-    transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.25s ease;
-  }
-  .panel-contact-link:hover {
-    animation-play-state: paused;
-    border-color: rgba(0,255,255,0.65);
-    box-shadow: 0 0 22px rgba(0,255,255,0.18), 0 0 48px rgba(0,255,255,0.07);
-    transform: translateY(-2px);
-  }
-  .panel-contact-link:hover .btn-charge-link-neon {
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ffff, 0 0 24px #00ffff66;
-  }
-  .panel-contact-link:hover .btn-charge-link-neon::before { transform: scaleX(1); }
-  .panel-contact-link:hover .charge-arrows {
-    letter-spacing: 0.12em;
-    opacity: 1;
-  }
-
-  /* Neon text-link charge variant */
-  .btn-charge-link-neon::before {
-    background: linear-gradient(90deg, rgba(0,255,255,0.20) 0%, rgba(0,255,255,0.06) 100%);
   }
 
   /* ── Scroll chevron animation ───────────────────────── */

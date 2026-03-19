@@ -54,13 +54,34 @@ html {
 
 /* Neon power-down flicker on name */
 @keyframes neon-off {
-  0%, 88%, 100% { opacity: 1;    text-shadow: 0 0 10px #00ffff, 0 0 40px #00ffff88, 0 0 80px #00ffff33; }
-  89%           { opacity: 0.35; text-shadow: 0 0 4px #00ffff44; }
-  90%           { opacity: 1;    text-shadow: 0 0 10px #00ffff, 0 0 40px #00ffff88, 0 0 80px #00ffff33; }
-  91%           { opacity: 0.06; text-shadow: none; }
-  92%           { opacity: 0.75; text-shadow: 0 0 6px #00ffff66; }
-  93%           { opacity: 0.04; text-shadow: none; }
-  94%           { opacity: 1;    text-shadow: 0 0 10px #00ffff, 0 0 40px #00ffff88, 0 0 80px #00ffff33; }
+  0%, 88%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px #00ffff, 0 0 40px #00ffff88, 0 0 80px #00ffff33,
+      0 0 10px #ff00c8, 0 0 40px #ff00c888, 0 0 80px #ff00c833;
+  }
+  89% {
+    opacity: 0.35;
+    text-shadow: 0 0 4px #00ffff44, 0 0 4px #ff00c844;
+  }
+  90% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px #00ffff, 0 0 40px #00ffff88, 0 0 80px #00ffff33,
+      0 0 10px #ff00c8, 0 0 40px #ff00c888, 0 0 80px #ff00c833;
+  }
+  91% { opacity: 0.06; text-shadow: none; }
+  92% {
+    opacity: 0.75;
+    text-shadow: 0 0 6px #00ffff66, 0 0 6px #ff00c866;
+  }
+  93% { opacity: 0.04; text-shadow: none; }
+  94% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px #00ffff, 0 0 40px #00ffff88, 0 0 80px #00ffff33,
+      0 0 10px #ff00c8, 0 0 40px #ff00c888, 0 0 80px #ff00c833;
+  }
 }
 
 /* CRT scanline sweep */
