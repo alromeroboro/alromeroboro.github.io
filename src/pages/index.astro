@@ -43,12 +43,27 @@ const t = useTranslations(locale);
       <div class="noise-grain absolute inset-0 pointer-events-none"></div>
     </div>
 
-    <!-- Scroll CTA -->
-    <div class="relative z-10 mt-1 pb-2">
-      <a href="#about" class="inline-flex flex-col items-center gap-0.5 text-neon/60 hover:text-neon transition-colors duration-300">
-        <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('hero.scrollCta')}</span>
+    <!-- Nav button bar -->
+    <div class="relative z-10 mt-1 pb-2 flex items-center justify-center gap-6 sm:gap-10">
+
+      <!-- About -->
+      <a href="#about" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-neon/60 hover:text-neon transition-colors duration-300">
+        <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('nav.about')}</span>
         <span class="scroll-chevron text-base leading-none">▼</span>
       </a>
+
+      <!-- Projects -->
+      <a href="#projects" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-fuchsia/60 hover:text-fuchsia transition-colors duration-300">
+        <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('nav.projects')}</span>
+        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.4s">▼</span>
+      </a>
+
+      <!-- Contact -->
+      <a href="#contact" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-amber/60 hover:text-amber transition-colors duration-300">
+        <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('nav.contact')}</span>
+        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.8s">▼</span>
+      </a>
+
     </div>
   </section>
 

@@ -86,9 +86,11 @@ const pageLift = {
 
       <!-- Center: ALBERTO large name -->
       <div class="flex flex-col items-center gap-1 self-center">
-        <div class="relative">
+        <div class="relative flex items-center gap-3">
+          <!-- Brand logo -->
+          <img src="/images/logo.png" alt="AR" width="36" height="36" class="logo-mark" />
           <!-- Base layer -->
-          <span class="name-main font-name font-bold text-2xl sm:text-[3rem] leading-none tracking-[0.18em] text-neon uppercase block text-center">
+          <span class="name-main font-name font-bold text-2xl sm:text-[3rem] leading-none tracking-[0.18em] uppercase block text-center">
             {t('hero.name')}
           </span>
         </div>
@@ -227,12 +229,27 @@ const pageLift = {
     );
   }
 
-  /* ── Name glow & neon-off flicker ───────────────────── */
+  /* ── Header logo mark ───────────────────────────────── */
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px rgba(255,0,200,0.4)) drop-shadow(0 0 14px rgba(0,255,255,0.2));
+    flex-shrink: 0;
+  }
+
+  /* ── Name gradient & neon-off flicker ───────────────── */
   .name-main {
-    text-shadow:
-      0 0 10px #00ffff,
-      0 0 40px #00ffff88,
-      0 0 80px #00ffff33;
+    background: linear-gradient(to right, #00ffff 0%, #ff00c8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: none;
+    filter:
+      drop-shadow(0 0 8px rgba(0,255,255,0.55))
+      drop-shadow(0 0 22px rgba(255,0,200,0.35));
     animation: neon-off 10s steps(1) infinite;
     animation-delay: 4s;
   }
