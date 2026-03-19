@@ -4,6 +4,7 @@ export const es: Record<TranslationKey, string> = {
   // Navigation
   'nav.projects': 'PROYECTOS',
   'nav.about': 'SOBRE MÍ',
+  'nav.experience': 'EXPERIENCIA',
   'nav.contact': 'CONTACTO',
 
   // Hero
@@ -41,6 +42,7 @@ export const es: Record<TranslationKey, string> = {
 
   // Section headings (single-page scroll sections)
   'sections.about': '// SOBRE MÍ',
+  'sections.experience': '// EXPERIENCIA',
   'sections.projects': '// PROYECTOS',
   'sections.contact': '// CONTACTO',
   'sections.underConstruction': '// EN CONSTRUCCIÓN',

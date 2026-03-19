@@ -2,6 +2,7 @@ export const en = {
   // Navigation
   'nav.projects': 'PROJECTS',
   'nav.about': 'ABOUT',
+  'nav.experience': 'EXPERIENCE',
   'nav.contact': 'CONTACT',
 
   // Hero
@@ -39,6 +40,7 @@ export const en = {
 
   // Section headings (single-page scroll sections)
   'sections.about': '// ABOUT ME',
+  'sections.experience': '// EXPERIENCE',
   'sections.projects': '// PROJECTS',
   'sections.contact': '// CONTACT',
   'sections.underConstruction': '// UNDER CONSTRUCTION',
