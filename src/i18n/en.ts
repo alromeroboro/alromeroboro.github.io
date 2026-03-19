@@ -44,6 +44,13 @@ export const en = {
   'sections.underConstruction': '// UNDER CONSTRUCTION',
   'sections.wipText': 'THIS SECTION IS UNDER ACTIVE DEVELOPMENT',
 
+  // About section
+  'about.bio1': "I've been building web applications for over 15 years, from interfaces to full systems that work and scale.",
+  'about.bio2': 'Although my specialty is frontend with React, I have always worked on the backend too — giving me a holistic view of development and the ability to understand the product beyond the code. I like building clean, accessible, well-crafted interfaces, while also making the technical decisions that make everything fit together.',
+  'about.bio3': 'I enjoy tackling complex problems, working on products that evolve and improve over time, and constantly learning along the way.',
+  'about.subject': 'SUBJECT',
+  'about.status': 'STATUS: ACTIVE',
+
   // Hero scroll CTA
   'hero.scrollCta': 'SCROLL',
 

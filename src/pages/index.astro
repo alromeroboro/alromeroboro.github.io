@@ -70,17 +70,89 @@ const t = useTranslations(locale);
   <!-- ── About section ─────────────────────────────────── -->
   <section id="about" class="relative py-16 px-3 sm:px-6 section-cyan-haze">
     <div class="max-w-5xl mx-auto">
-      <div class="flex items-center gap-4 mb-10">
-        <span class="font-display text-neon text-lg sm:text-xl tracking-widest text-glow-neon">{t('sections.about')}</span>
+
+      <!-- Section heading -->
+      <div class="flex items-center gap-4 mb-8">
+        <span class="font-display text-neon text-lg sm:text-xl tracking-widest text-glow-neon">
+          {t('sections.about')}
+        </span>
         <div class="flex-1 h-px bg-gradient-to-r from-neon/40 to-transparent"></div>
       </div>
-      <div class="relative border border-amber/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(12,6,0,0.85); box-shadow: 0 0 18px rgba(255,140,0,0.12);">
-        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/70"></div>
-        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/40"></div>
-        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/40"></div>
-        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/70"></div>
-        <p class="font-display text-amber text-sm tracking-widest text-glow-amber">{t('sections.underConstruction')}</p>
-        <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
+
+      <!-- HUD ID card -->
+      <div class="relative border border-neon/30 grid grid-cols-1 md:grid-cols-[280px_1fr]"
+           style="background: rgba(0,8,16,0.88); box-shadow: 0 0 24px rgba(0,255,255,0.08);">
+
+        <!-- Corner brackets (outer panel) -->
+        <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-neon/70"></div>
+        <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-neon/40"></div>
+        <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-neon/40"></div>
+        <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-neon/70"></div>
+
+        <!-- LEFT: Photo column -->
+        <div class="relative flex flex-col border-b md:border-b-0 md:border-r border-neon/20 p-4 sm:p-6 items-center gap-3">
+          <!-- ID label -->
+          <div class="w-full flex items-center gap-2 mb-1">
+            <span class="text-[9px] font-display tracking-[0.3em] text-neon/60 uppercase">
+              &#x25A3;&#x25A3; {t('about.subject')}
+            </span>
+            <div class="flex-1 h-px bg-neon/20"></div>
+          </div>
+
+          <!-- Photo frame -->
+          <div class="relative w-44 sm:w-52">
+            <!-- Corner brackets around photo -->
+            <div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-neon/80 z-10"></div>
+            <div class="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-neon/50 z-10"></div>
+            <div class="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-neon/50 z-10"></div>
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-neon/80 z-10"></div>
+            <img
+              src="/images/selfie.png"
+              alt="Alberto Romero"
+              class="w-full h-auto block"
+              style="filter: drop-shadow(0 0 8px rgba(0,255,255,0.35)) drop-shadow(0 0 20px rgba(0,255,255,0.15));"
+            />
+            <!-- Scan line overlay -->
+            <div class="absolute inset-0 pointer-events-none"
+                 style="background: repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0,255,255,0.04) 3px, rgba(0,255,255,0.04) 4px);">
+            </div>
+          </div>
+
+          <!-- Status badge -->
+          <div class="w-full border border-neon/30 py-1 px-2 text-center mt-1"
+               style="background: rgba(0,255,255,0.06);">
+            <span class="text-[10px] font-display tracking-[0.25em] text-neon text-glow-neon uppercase">
+              {t('about.status')}
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT: Bio column -->
+        <div class="p-6 sm:p-8 flex flex-col gap-5">
+          <!-- Name + role -->
+          <div>
+            <p class="font-name text-neon text-xl sm:text-2xl tracking-widest text-glow-neon leading-tight">
+              {t('hero.name')}
+            </p>
+            <p class="font-display text-fuchsia text-xs tracking-[0.3em] mt-1 uppercase"
+               style="text-shadow: 0 0 8px rgba(255,0,200,0.5);">
+              FRONTEND DEVELOPER
+            </p>
+            <div class="h-px bg-gradient-to-r from-neon/30 to-transparent mt-3"></div>
+          </div>
+
+          <!-- Bio paragraphs -->
+          <p class="text-xs sm:text-sm text-muted/80 leading-relaxed tracking-wide">
+            {t('about.bio1')}
+          </p>
+          <p class="text-xs sm:text-sm text-muted/80 leading-relaxed tracking-wide">
+            {t('about.bio2')}
+          </p>
+          <p class="text-xs sm:text-sm text-muted/80 leading-relaxed tracking-wide">
+            {t('about.bio3')}
+          </p>
+        </div>
+
       </div>
     </div>
   </section>

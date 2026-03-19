@@ -46,6 +46,13 @@ export const es: Record<TranslationKey, string> = {
   'sections.underConstruction': '// EN CONSTRUCCIÓN',
   'sections.wipText': 'ESTA SECCIÓN ESTÁ EN DESARROLLO ACTIVO',
 
+  // About section
+  'about.bio1': 'Llevo más de 15 años desarrollando aplicaciones web, construyendo desde interfaces hasta sistemas completos que funcionan y escalan.',
+  'about.bio2': 'Aunque mi especialidad es el frontend con React, también he trabajado constantemente en backend, lo que me ha dado una visión global del desarrollo y me permite entender el producto más allá del código. Me gusta crear interfaces limpias, accesibles y bien pensadas, pero también tomar decisiones técnicas que hagan que todo encaje.',
+  'about.bio3': 'Disfruto enfrentándome a problemas complejos, trabajando en productos que evolucionan y mejoran con el tiempo, y aprendiendo constantemente en el proceso.',
+  'about.subject': 'SUJETO',
+  'about.status': 'ESTADO: ACTIVO',
+
   // Hero scroll CTA
   'hero.scrollCta': 'SCROLL',
 
