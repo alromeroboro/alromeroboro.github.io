@@ -176,13 +176,83 @@ const t = useTranslations(locale);
         <span class="font-display text-amber text-lg sm:text-xl tracking-widest text-glow-amber">{t('sections.skills')}</span>
         <div class="flex-1 h-px bg-gradient-to-r from-amber/40 to-transparent"></div>
       </div>
-      <div class="relative border border-amber/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(18,8,0,0.85); box-shadow: 0 0 18px rgba(255,140,0,0.12);">
-        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/70"></div>
-        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/40"></div>
-        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/40"></div>
-        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/70"></div>
-        <p class="font-display text-amber text-sm tracking-widest text-glow-amber">{t('sections.underConstruction')}</p>
-        <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+        <!-- Frontend -->
+        <div class="relative border border-amber/30 p-4" style="background: rgba(18,8,0,0.75);">
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/60"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/60"></div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[9px] font-display tracking-[0.3em] text-amber/70 uppercase">▶ {t('skills.frontend')}</span>
+            <div class="flex-1 h-px bg-amber/20"></div>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'W3C', 'Storybook'].map(s => (
+              <span class="skill-tag">{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="relative border border-amber/30 p-4" style="background: rgba(18,8,0,0.75);">
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/60"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/60"></div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[9px] font-display tracking-[0.3em] text-amber/70 uppercase">▶ {t('skills.backend')}</span>
+            <div class="flex-1 h-px bg-amber/20"></div>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {['PHP', 'Laravel', 'Python', 'FastAPI', 'Django'].map(s => (
+              <span class="skill-tag">{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="relative border border-amber/30 p-4" style="background: rgba(18,8,0,0.75);">
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/60"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/60"></div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[9px] font-display tracking-[0.3em] text-amber/70 uppercase">▶ {t('skills.databases')}</span>
+            <div class="flex-1 h-px bg-amber/20"></div>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {['MySQL', 'SQL', 'PostgreSQL', 'MongoDB'].map(s => (
+              <span class="skill-tag">{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- AI Tools -->
+        <div class="relative border border-amber/30 p-4" style="background: rgba(18,8,0,0.75);">
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/60"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/60"></div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[9px] font-display tracking-[0.3em] text-amber/70 uppercase">▶ {t('skills.ai')}</span>
+            <div class="flex-1 h-px bg-amber/20"></div>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {['Claude Code', 'Codex'].map(s => (
+              <span class="skill-tag">{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Other Tools — full width -->
+        <div class="relative border border-amber/30 p-4 sm:col-span-2" style="background: rgba(18,8,0,0.75);">
+          <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/60"></div>
+          <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/60"></div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[9px] font-display tracking-[0.3em] text-amber/70 uppercase">▶ {t('skills.other')}</span>
+            <div class="flex-1 h-px bg-amber/20"></div>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {['Git', 'Jira', 'SOLID', 'Ports & Adapters'].map(s => (
+              <span class="skill-tag">{s}</span>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
