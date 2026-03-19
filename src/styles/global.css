@@ -51,6 +51,9 @@ html {
 }
 
 @utility skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-family: var(--font-body);
   font-size: 0.65rem;
   letter-spacing: 0.08em;
@@ -62,10 +65,22 @@ html {
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
+.skill-tag img {
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 0.75;
+  filter: brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(400%) hue-rotate(5deg) brightness(0.95);
+  transition: opacity 0.2s;
+}
+
 .skill-tag:hover {
   background: rgba(255,140,0,0.14);
   border-color: rgba(255,140,0,0.7);
   color: #ff8c00;
+}
+
+.skill-tag:hover img {
+  opacity: 1;
 }
 
 @utility panel-holo {

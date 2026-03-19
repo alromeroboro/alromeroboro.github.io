@@ -4,6 +4,27 @@ import { useTranslations } from '../i18n';
 
 const locale = Astro.currentLocale ?? 'en';
 const t = useTranslations(locale);
+
+const skillIcons: Record<string, string> = {
+  'HTML':         'html5',
+  'CSS':          'css',
+  'JavaScript':   'javascript',
+  'TypeScript':   'typescript',
+  'React':        'react',
+  'Storybook':    'storybook',
+  'PHP':          'php',
+  'Laravel':      'laravel',
+  'Python':       'python',
+  'FastAPI':      'fastapi',
+  'Django':       'django',
+  'MySQL':        'mysql',
+  'PostgreSQL':   'postgresql',
+  'MongoDB':      'mongodb',
+  'Claude Code':  'anthropic',
+  'Codex':        'openaigym',
+  'Git':          'git',
+  'Jira':         'jira',
+};
 ---
 
 <BaseLayout locale={locale} title={`${t('hero.name')} | Portfolio`} path="/">
@@ -187,9 +208,15 @@ const t = useTranslations(locale);
             <div class="flex-1 h-px bg-amber/20"></div>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            {['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'W3C', 'Storybook'].map(s => (
-              <span class="skill-tag">{s}</span>
-            ))}
+            {['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Storybook', 'W3C'].map(s => {
+              const slug = skillIcons[s];
+              return (
+                <span class="skill-tag">
+                  {slug && <img src={`https://cdn.simpleicons.org/${slug}`} alt="" class="skill-icon" width="12" height="12" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
 
@@ -202,9 +229,15 @@ const t = useTranslations(locale);
             <div class="flex-1 h-px bg-amber/20"></div>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            {['PHP', 'Laravel', 'Python', 'FastAPI', 'Django'].map(s => (
-              <span class="skill-tag">{s}</span>
-            ))}
+            {['PHP', 'Laravel', 'Python', 'FastAPI', 'Django'].map(s => {
+              const slug = skillIcons[s];
+              return (
+                <span class="skill-tag">
+                  {slug && <img src={`https://cdn.simpleicons.org/${slug}`} alt="" class="skill-icon" width="12" height="12" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
 
@@ -217,9 +250,15 @@ const t = useTranslations(locale);
             <div class="flex-1 h-px bg-amber/20"></div>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            {['MySQL', 'SQL', 'PostgreSQL', 'MongoDB'].map(s => (
-              <span class="skill-tag">{s}</span>
-            ))}
+            {['MySQL', 'SQL', 'PostgreSQL', 'MongoDB'].map(s => {
+              const slug = skillIcons[s];
+              return (
+                <span class="skill-tag">
+                  {slug && <img src={`https://cdn.simpleicons.org/${slug}`} alt="" class="skill-icon" width="12" height="12" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
 
@@ -232,9 +271,15 @@ const t = useTranslations(locale);
             <div class="flex-1 h-px bg-amber/20"></div>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            {['Claude Code', 'Codex'].map(s => (
-              <span class="skill-tag">{s}</span>
-            ))}
+            {['Claude Code', 'Codex'].map(s => {
+              const slug = skillIcons[s];
+              return (
+                <span class="skill-tag">
+                  {slug && <img src={`https://cdn.simpleicons.org/${slug}`} alt="" class="skill-icon" width="12" height="12" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
 
@@ -247,9 +292,15 @@ const t = useTranslations(locale);
             <div class="flex-1 h-px bg-amber/20"></div>
           </div>
           <div class="flex flex-wrap gap-1.5">
-            {['Git', 'Jira', 'SOLID', 'Ports & Adapters'].map(s => (
-              <span class="skill-tag">{s}</span>
-            ))}
+            {['Git', 'Jira', 'SOLID', 'Ports & Adapters'].map(s => {
+              const slug = skillIcons[s];
+              return (
+                <span class="skill-tag">
+                  {slug && <img src={`https://cdn.simpleicons.org/${slug}`} alt="" class="skill-icon" width="12" height="12" loading="lazy" />}
+                  {s}
+                </span>
+              );
+            })}
           </div>
         </div>
 

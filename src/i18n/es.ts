@@ -45,7 +45,7 @@ export const es: Record<TranslationKey, string> = {
   'sections.about': '// SOBRE MÍ',
   'sections.experience': '// EXPERIENCIA',
   'sections.projects': '// PROYECTOS',
-  'sections.skills': '// HABILIDADES',
+  'sections.skills': '// SKILLS',
   'skills.frontend': 'FRONTEND',
   'skills.backend': 'BACKEND',
   'skills.databases': 'BASES DE DATOS',
