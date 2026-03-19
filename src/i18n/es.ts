@@ -5,6 +5,7 @@ export const es: Record<TranslationKey, string> = {
   'nav.projects': 'PROYECTOS',
   'nav.about': 'SOBRE MÍ',
   'nav.experience': 'EXPERIENCIA',
+  'nav.skills': 'SKILLS',
   'nav.contact': 'CONTACTO',
 
   // Hero
@@ -24,7 +25,7 @@ export const es: Record<TranslationKey, string> = {
   'panels.projects.cta': 'VER CASOS DE ESTUDIO >>',
 
   'panels.about.title': 'SOBRE MÍ',
-  'panels.about.skills': 'HABILIDADES',
+  'panels.about.skills': 'SKILLS',
   'panels.about.experience': 'EXPERIENCIA',
 
   'panels.contact.title': 'CONTACTO',
@@ -44,6 +45,7 @@ export const es: Record<TranslationKey, string> = {
   'sections.about': '// SOBRE MÍ',
   'sections.experience': '// EXPERIENCIA',
   'sections.projects': '// PROYECTOS',
+  'sections.skills': '// SKILLS',
   'sections.contact': '// CONTACTO',
   'sections.underConstruction': '// EN CONSTRUCCIÓN',
   'sections.wipText': 'ESTA SECCIÓN ESTÁ EN DESARROLLO ACTIVO',

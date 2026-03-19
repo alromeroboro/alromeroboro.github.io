@@ -46,6 +46,10 @@ html {
   text-shadow: 0 0 8px #ff8c00, 0 0 30px #ff8c0066;
 }
 
+@utility section-amber-haze {
+  background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255,140,0,0.06) 0%, transparent 70%);
+}
+
 @utility panel-holo {
   animation: holo-pulse 5s ease-in-out infinite;
 }

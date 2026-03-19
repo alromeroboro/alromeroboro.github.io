@@ -44,7 +44,7 @@ const t = useTranslations(locale);
     </div>
 
     <!-- Nav button bar -->
-    <div class="relative z-10 mt-1 pb-2 flex items-center justify-center gap-6 sm:gap-10">
+    <div class="relative z-10 mt-1 pb-2 hidden sm:flex items-center justify-center gap-6 sm:gap-10">
 
       <!-- About -->
       <a href="#about" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-neon/60 hover:text-neon transition-colors duration-300">
@@ -52,16 +52,22 @@ const t = useTranslations(locale);
         <span class="scroll-chevron text-base leading-none">▼</span>
       </a>
 
+      <!-- Skills -->
+      <a href="#skills" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-amber/60 hover:text-amber transition-colors duration-300">
+        <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('nav.skills')}</span>
+        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.2s">▼</span>
+      </a>
+
       <!-- Experience -->
       <a href="#experience" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-accent/60 hover:text-accent transition-colors duration-300">
         <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('nav.experience')}</span>
-        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.27s">▼</span>
+        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.4s">▼</span>
       </a>
 
       <!-- Projects -->
       <a href="#projects" class="nav-scroll-btn group inline-flex flex-col items-center gap-0.5 text-fuchsia/60 hover:text-fuchsia transition-colors duration-300">
         <span class="text-[9px] tracking-[0.35em] font-display uppercase">{t('nav.projects')}</span>
-        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.54s">▼</span>
+        <span class="scroll-chevron text-base leading-none" style="animation-delay: 0.6s">▼</span>
       </a>
 
       <!-- Contact -->
@@ -159,6 +165,24 @@ const t = useTranslations(locale);
           </p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills section ───────────────────────────────── -->
+  <section id="skills" class="relative py-16 px-3 sm:px-6 section-amber-haze">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-10">
+        <span class="font-display text-amber text-lg sm:text-xl tracking-widest text-glow-amber">{t('sections.skills')}</span>
+        <div class="flex-1 h-px bg-gradient-to-r from-amber/40 to-transparent"></div>
+      </div>
+      <div class="relative border border-amber/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(18,8,0,0.85); box-shadow: 0 0 18px rgba(255,140,0,0.12);">
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/70"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/40"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/40"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/70"></div>
+        <p class="font-display text-amber text-sm tracking-widest text-glow-amber">{t('sections.underConstruction')}</p>
+        <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
       </div>
     </div>
   </section>

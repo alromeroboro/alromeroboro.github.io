@@ -3,6 +3,7 @@ export const en = {
   'nav.projects': 'PROJECTS',
   'nav.about': 'ABOUT',
   'nav.experience': 'EXPERIENCE',
+  'nav.skills': 'SKILLS',
   'nav.contact': 'CONTACT',
 
   // Hero
@@ -42,6 +43,7 @@ export const en = {
   'sections.about': '// ABOUT ME',
   'sections.experience': '// EXPERIENCE',
   'sections.projects': '// PROJECTS',
+  'sections.skills': '// SKILLS',
   'sections.contact': '// CONTACT',
   'sections.underConstruction': '// UNDER CONSTRUCTION',
   'sections.wipText': 'THIS SECTION IS UNDER ACTIVE DEVELOPMENT',
