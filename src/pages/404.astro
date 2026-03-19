@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const locale = Astro.currentLocale ?? 'en';
+---
+
+<BaseLayout locale={locale} title="404 · SECTOR NOT FOUND" path="/">
+
+  <section class="relative flex-1 flex flex-col items-center justify-center text-center px-4 py-16 gap-8 overflow-hidden err-section">
+
+    <!-- Atmospheric hazes -->
+    <div class="err-haze-red" aria-hidden="true"></div>
+    <div class="err-haze-fuchsia" aria-hidden="true"></div>
+
+    <!-- Panel container -->
+    <div class="relative border border-accent/40 p-8 sm:p-14 max-w-xl w-full err-panel" style="background: rgba(8,0,4,0.90);">
+      <!-- Corner brackets -->
+      <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-accent/80"></div>
+      <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-accent/40"></div>
+      <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-accent/40"></div>
+      <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-accent/80"></div>
+
+      <!-- Status badge -->
+      <div class="err-badge inline-flex items-center gap-2 px-3 py-1 border border-accent/30 text-[10px] tracking-[0.3em] text-accent/70 font-display uppercase">
+        <span class="err-blink w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+        ERROR · SIGNAL LOST
+      </div>
+
+      <!-- 404 glitch number -->
+      <div class="err-num relative">
+        <span class="err-404 font-display font-black text-[7rem] sm:text-[10rem] leading-none tracking-tight text-accent block">
+          404
+        </span>
+        <!-- Glitch ghost layers -->
+        <span class="err-404-ghost-cyan font-display font-black text-[7rem] sm:text-[10rem] leading-none tracking-tight block absolute inset-0" aria-hidden="true">
+          404
+        </span>
+        <span class="err-404-ghost-fuchsia font-display font-black text-[7rem] sm:text-[10rem] leading-none tracking-tight block absolute inset-0" aria-hidden="true">
+          404
+        </span>
+      </div>
+
+      <!-- Sub-heading -->
+      <p class="err-sub font-display text-accent text-sm sm:text-base tracking-[0.3em] uppercase" style="text-shadow: 0 0 8px #ff003c88;">
+        SECTOR NOT FOUND
+      </p>
+
+      <!-- Divider -->
+      <div class="err-divider h-px bg-linear-to-r from-transparent via-accent/40 to-transparent"></div>
+
+      <!-- Body copy -->
+      <p class="err-body text-xs text-muted/60 tracking-widest leading-relaxed">
+        THE NODE YOU REQUESTED DOES NOT EXIST<br/>OR HAS BEEN MOVED TO ANOTHER SECTOR.
+      </p>
+
+      <!-- CTA button -->
+      <a
+        href="/"
+        class="inline-flex items-center gap-3 border border-neon/50 text-neon btn-charge btn-charge-neon px-6 py-3 font-display text-xs tracking-[0.25em] uppercase px-3"
+        style="box-shadow: 0 0 8px #00ffff22;"
+      >
+        <span class="text-base leading-none">◀</span>
+        RETURN TO BASE
+      </a>
+    </div>
+
+    <!-- Bottom system readout -->
+    <div class="flex gap-6 text-[9px] tracking-[0.25em] text-muted/30 font-display uppercase">
+      <span>SYS&gt; ERR_404</span>
+      <span class="text-accent/40">·</span>
+      <span>NODE: NULL</span>
+      <span class="text-accent/40">·</span>
+      <span>REROUTE RECOMMENDED</span>
+    </div>
+
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Section background ──────────────────────────────── */
+  .err-section {
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 40%, rgba(255,0,60,0.04) 0%, transparent 100%);
+  }
+
+  /* ── Atmospheric hazes ───────────────────────────────── */
+  .err-haze-red {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(255,0,60,0.08) 0%, transparent 100%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .err-haze-fuchsia {
+    position: absolute;
+    bottom: 15%;
+    left: 20%;
+    width: 400px;
+    height: 200px;
+    background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(255,0,200,0.05) 0%, transparent 100%);
+    filter: blur(48px);
+    pointer-events: none;
+  }
+
+  /* ── Panel glow on hover ─────────────────────────────── */
+  .err-panel {
+    transition: box-shadow 0.4s ease;
+  }
+  .err-panel:hover {
+    box-shadow: 0 0 28px rgba(255,0,60,0.14), 0 0 60px rgba(255,0,60,0.05);
+  }
+
+  /* ── 404 base text ───────────────────────────────────── */
+  .err-404 {
+    font-size: clamp(5rem, 18vw, 10rem);
+    text-shadow:
+      0 0 12px #ff003c,
+      0 0 40px #ff003c88,
+      0 0 80px #ff003c33;
+    animation: err-flicker 6s steps(1) infinite;
+    animation-delay: 2s;
+  }
+
+  /* ── Ghost / glitch layers ───────────────────────────── */
+  .err-404-ghost-cyan {
+    color: #00ffff;
+    opacity: 0;
+    mix-blend-mode: screen;
+    animation: err-glitch-cyan 6s steps(1) infinite;
+    animation-delay: 2s;
+  }
+  .err-404-ghost-fuchsia {
+    color: #ff00c8;
+    opacity: 0;
+    mix-blend-mode: screen;
+    animation: err-glitch-fuchsia 6s steps(1) infinite;
+    animation-delay: 2.05s;
+  }
+
+  /* ── Blinking status dot ─────────────────────────────── */
+  .err-blink {
+    animation: err-dot-blink 1.4s steps(1) infinite;
+  }
+
+  /* ── Charge sweep button (local copy) ────────────────── */
+  .btn-charge {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: box-shadow 0.4s ease, border-color 0.35s ease, color 0.2s ease;
+  }
+  .btn-charge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-charge:hover::before { transform: scaleX(1); }
+  .btn-charge-neon::before {
+    background: linear-gradient(90deg, rgba(0,255,255,0.18) 0%, rgba(0,255,255,0.08) 100%);
+  }
+  .btn-charge-neon:hover {
+    border-color: rgba(0,255,255,0.85);
+    color: #ffffff;
+    text-shadow: 0 0 8px #00ffff;
+    box-shadow: 0 0 18px rgba(0,255,255,0.45), 0 0 40px rgba(0,255,255,0.15);
+  }
+
+  /* ── Keyframes ───────────────────────────────────────── */
+  @keyframes err-flicker {
+    0%, 92%, 94%, 96%, 100% { opacity: 1; }
+    93%, 95%                  { opacity: 0.15; }
+  }
+
+  @keyframes err-glitch-cyan {
+    0%, 89%, 100%  { opacity: 0; transform: translate(0, 0); }
+    90%            { opacity: 0.55; transform: translate(-4px, 1px); }
+    91%            { opacity: 0.30; transform: translate(3px, -1px); }
+    92%            { opacity: 0; transform: translate(0, 0); }
+  }
+
+  @keyframes err-glitch-fuchsia {
+    0%, 89%, 100%  { opacity: 0; transform: translate(0, 0); }
+    90%            { opacity: 0.45; transform: translate(4px, -1px); }
+    91%            { opacity: 0.20; transform: translate(-3px, 2px); }
+    92%            { opacity: 0; transform: translate(0, 0); }
+  }
+
+  @keyframes err-dot-blink {
+    0%, 49%  { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  /* ── Inner panel spacing ─────────────────────────────── */
+  .err-badge   { margin-bottom: 2.5rem; }
+  .err-num     { margin-bottom: 2rem;   }
+  .err-sub     { margin-bottom: 1.5rem; }
+  .err-divider { margin-top: 2.5rem; margin-bottom: 2.5rem; }
+  .err-body    { margin-bottom: 3rem;   }
+</style>
