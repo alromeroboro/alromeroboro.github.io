@@ -3,6 +3,7 @@ import { useTranslations } from '../../i18n';
 import HomeSection from '../ui/HomeSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import CornerBrackets from '../ui/CornerBrackets.astro';
+import BackToTop from '../ui/BackToTop.astro';
 
 interface Props { locale: string; }
 const { locale } = Astro.props;
@@ -15,4 +16,5 @@ const t = useTranslations(locale);
     <p class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">{t('sections.underConstruction')}</p>
     <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
   </div>
+  <BackToTop color="fuchsia" />
 </HomeSection>

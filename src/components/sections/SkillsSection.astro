@@ -3,6 +3,7 @@ import { useTranslations } from '../../i18n';
 import HomeSection from '../ui/HomeSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import SkillBox from '../ui/SkillBox.astro';
+import BackToTop from '../ui/BackToTop.astro';
 import { skillCategories } from '../../data/skills';
 
 interface Props { locale: string; }
@@ -20,4 +21,5 @@ const t = useTranslations(locale);
       />
     ))}
   </div>
+  <BackToTop color="amber" />
 </HomeSection>

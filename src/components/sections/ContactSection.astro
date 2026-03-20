@@ -2,6 +2,7 @@
 import { useTranslations } from '../../i18n';
 import HomeSection from '../ui/HomeSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
+import BackToTop from '../ui/BackToTop.astro';
 
 interface Props { locale: string; }
 const { locale } = Astro.props;
@@ -50,4 +51,5 @@ const t = useTranslations(locale);
       </div>
     </a>
   </div>
+  <BackToTop color="neon" />
 </HomeSection>

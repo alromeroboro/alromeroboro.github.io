@@ -1,0 +1,16 @@
+---
+interface Props { color?: 'neon' | 'amber' | 'accent' | 'fuchsia'; }
+const { color = 'neon' } = Astro.props;
+const colorMap = {
+  neon:    'text-neon/60    hover:text-neon',
+  amber:   'text-amber/60   hover:text-amber',
+  accent:  'text-accent/60  hover:text-accent',
+  fuchsia: 'text-fuchsia/60 hover:text-fuchsia',
+};
+---
+<div class="flex justify-center mt-8">
+  <a href="#" class={`nav-scroll-btn group inline-flex flex-col items-center gap-0.5 transition-colors duration-300 ${colorMap[color]}`}>
+    <span class="scroll-chevron-up text-base leading-none">▲</span>
+    <span class="text-[9px] tracking-[0.35em] font-display uppercase">TOP</span>
+  </a>
+</div>

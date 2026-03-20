@@ -4,6 +4,7 @@ import HomeSection from '../ui/HomeSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import CornerBrackets from '../ui/CornerBrackets.astro';
 import ExperienceAccordion from '../react/ExperienceAccordion';
+import BackToTop from '../ui/BackToTop.astro';
 import { jobs, skillIcons } from '../../data/jobs';
 
 interface Props { locale: string; }
@@ -17,4 +18,5 @@ const localeJobs = jobs[locale] ?? jobs['en'];
     <CornerBrackets color="accent" size="w-4 h-4" />
     <ExperienceAccordion client:load jobs={localeJobs} skillIcons={skillIcons} />
   </div>
+  <BackToTop color="accent" />
 </HomeSection>

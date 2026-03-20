@@ -3,6 +3,7 @@ import { useTranslations } from '../../i18n';
 import HomeSection from '../ui/HomeSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import CornerBrackets from '../ui/CornerBrackets.astro';
+import BackToTop from '../ui/BackToTop.astro';
 
 interface Props { locale: string; }
 const { locale } = Astro.props;
@@ -86,4 +87,5 @@ const resumeUrl = locale === 'es'
     </div>
 
   </div>
+  <BackToTop color="neon" />
 </HomeSection>

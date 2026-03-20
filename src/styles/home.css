@@ -264,3 +264,10 @@
   0%, 100% { opacity: 0.5; transform: translateY(0); }
   50%       { opacity: 1;   transform: translateY(3px); }
 }
+.scroll-chevron-up {
+  animation: chevron-pulse-up 2s ease-in-out infinite;
+}
+@keyframes chevron-pulse-up {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50%       { opacity: 1;   transform: translateY(-3px); }
+}
