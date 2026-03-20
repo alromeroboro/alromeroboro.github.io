@@ -68,4 +68,7 @@ export const es: Record<TranslationKey, string> = {
   // Lang toggle
   'lang.toggle.en': 'EN',
   'lang.toggle.es': 'ES',
+
+  // About section download
+  'hero.downloadResume': 'DESCARGAR CV',
 };

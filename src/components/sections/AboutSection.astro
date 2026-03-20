@@ -7,6 +7,9 @@ import CornerBrackets from '../ui/CornerBrackets.astro';
 interface Props { locale: string; }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+const resumeUrl = locale === 'es'
+  ? '/files/Alberto.Romero.Frontend.ES.pdf'
+  : '/files/Alberto.Romero.Frontend.EN.pdf';
 ---
 <HomeSection id="about" haze="section-cyan-haze">
 
@@ -48,6 +51,18 @@ const t = useTranslations(locale);
           {t('about.status')}
         </span>
       </div>
+
+      <!-- Download Resume button -->
+      <a
+        href={resumeUrl}
+        download
+        class="w-full flex items-center justify-center border border-accent/50 text-accent btn-charge btn-charge-accent py-6 px-2 mt-1"
+        style="box-shadow: 0 0 8px #ff003c22;"
+      >
+        <span class="text-[10px] font-display tracking-[0.25em] uppercase">
+          &#x25BC; {t('hero.downloadResume')}
+        </span>
+      </a>
     </div>
 
     <!-- RIGHT: Bio column -->

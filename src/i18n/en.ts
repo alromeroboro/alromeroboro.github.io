@@ -66,6 +66,9 @@ export const en = {
   // Lang toggle
   'lang.toggle.en': 'EN',
   'lang.toggle.es': 'ES',
+
+  // About section download
+  'hero.downloadResume': 'DOWNLOAD RESUME',
 } as const;
 
 export type TranslationKey = keyof typeof en;

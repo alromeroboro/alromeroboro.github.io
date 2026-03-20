@@ -40,6 +40,17 @@
   box-shadow: 0 0 18px rgba(255,0,200,0.45), 0 0 40px rgba(255,0,200,0.15);
 }
 
+/* Accent red variant */
+.btn-charge-accent::before {
+  background: linear-gradient(90deg, rgba(255,0,60,0.18) 0%, rgba(255,0,60,0.08) 100%);
+}
+.btn-charge-accent:hover {
+  border-color: rgba(255,0,60,0.85);
+  color: #ffffff;
+  text-shadow: 0 0 8px #ff003c;
+  box-shadow: 0 0 18px rgba(255,0,60,0.45), 0 0 40px rgba(255,0,60,0.15);
+}
+
 /* ── City banner ─────────────────────────────────────── */
 .noise-grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
