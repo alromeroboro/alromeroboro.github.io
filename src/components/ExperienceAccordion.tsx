@@ -86,7 +86,7 @@ export default function ExperienceAccordion({ jobs, skillIcons }: Props) {
             >
               <div className="px-5 pb-6 pt-1 border-t border-accent/10">
                 {/* Position + location row */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-3">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-4 gap-y-1 mb-3">
                   <span className="font-display text-accent/80 text-xs tracking-widest">
                     {job.position}
                   </span>
