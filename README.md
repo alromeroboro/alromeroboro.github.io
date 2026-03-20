@@ -1,43 +1,83 @@
-# Astro Starter Kit: Minimal
+# Alberto Romero — Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+Cyberpunk-themed personal portfolio built with Astro, React, and Tailwind CSS v4.
+
+**Live:** https://alromeroboro.github.io
+
+---
+
+## Features
+
+- **Bilingual (EN / ES)** via Astro built-in i18n routing
+- **Sections:** Hero, About, Experience, Skills, Projects, Contact
+- **Animated canvas rain** — 260 drops in cyan, fuchsia, and amber
+- **Cyberpunk visual system:** city skyline, fog layers, CRT scanlines, glitch animations, scrolling grid, holo panels, atmospheric orbs
+- **Interactive Experience accordion** (React)
+- **View transitions** (Astro ClientRouter)
+- **Fully static output** — deploys to GitHub Pages
+
+---
+
+## Tech Stack
+
+| | |
+|---|---|
+| Framework | Astro 5 |
+| UI (interactive) | React 19 |
+| Styling | Tailwind CSS v4 (CSS-first, `@theme` block) |
+| Language | TypeScript |
+| i18n | Astro built-in — EN `/`, ES `/es/` |
+| Fonts | Orbitron, JetBrains Mono (Google Fonts) |
+| Deployment | GitHub Pages (static) |
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── HomePage.astro          ← page orchestrator
+│   ├── react/                  ← interactive React components
+│   ├── sections/               ← page-level Astro sections
+│   └── ui/                     ← reusable presentational primitives
+├── data/                       ← jobs.ts, skills.ts
+├── i18n/                       ← en.ts, es.ts, index.ts
+├── layouts/BaseLayout.astro
+├── pages/index.astro + es/
+├── styles/global.css + home.css
+└── content/projects/en/ + es/
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | Action |
+|---|---|
+| `npm install` | Install dependencies |
+| `npx astro dev` | Dev server at localhost:4321 |
+| `npx astro build` | Production build → `dist/` |
+| `npx astro preview` | Preview production build |
+| `npx astro check` | TypeScript + Astro diagnostics |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+---
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## i18n
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+English is served at `/` (no prefix). Spanish is served at `/es/`. All UI strings live in `src/i18n/en.ts` and `src/i18n/es.ts`, consumed via the `useTranslations(locale)` helper in `src/i18n/index.ts`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+---
 
-## 🧞 Commands
+## Design Tokens
 
-All commands are run from the root of the project, from a terminal:
+Colors and fonts are defined in `src/styles/global.css` under the `@theme {}` block (Tailwind v4 CSS-first config). Key tokens:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Token | Tailwind class | Value |
+|---|---|---|
+| Background | `bg-bg` | `#050810` |
+| Neon cyan | `text-neon` / `border-neon` | `#00ffff` |
+| Fuchsia neon | `text-fuchsia` / `border-fuchsia` | `#ff00c8` |
+| Accent red | `text-accent` | `#ff003c` |
+| Amber neon | `text-amber` / `border-amber` | `#ff8c00` |
+| Muted text | `text-muted` | `#c0c8d0` |
