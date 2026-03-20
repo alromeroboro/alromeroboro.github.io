@@ -1,0 +1,9 @@
+---
+interface Props { id: string; haze?: string; class?: string; }
+const { id, haze = '', class: cls = '' } = Astro.props;
+---
+<section {id} class={`relative py-10 px-3 sm:px-6 ${haze} ${cls}`.trim()}>
+  <div class="max-w-5xl mx-auto">
+    <slot />
+  </div>
+</section>

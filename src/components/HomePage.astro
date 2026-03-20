@@ -1,0 +1,23 @@
+---
+import '../styles/home.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from './sections/HeroSection.astro';
+import AboutSection from './sections/AboutSection.astro';
+import SkillsSection from './sections/SkillsSection.astro';
+import ExperienceSection from './sections/ExperienceSection.astro';
+import ProjectsSection from './sections/ProjectsSection.astro';
+import ContactSection from './sections/ContactSection.astro';
+import { useTranslations } from '../i18n';
+
+interface Props { locale: string; }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+<BaseLayout locale={locale} title={`${t('hero.name')} | Portfolio`} path="/">
+  <HeroSection locale={locale} />
+  <AboutSection locale={locale} />
+  <SkillsSection locale={locale} />
+  <ExperienceSection locale={locale} />
+  <ProjectsSection locale={locale} />
+  <ContactSection locale={locale} />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import { useTranslations } from '../../i18n';
+import HomeSection from '../ui/HomeSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import CornerBrackets from '../ui/CornerBrackets.astro';
+import ExperienceAccordion from '../react/ExperienceAccordion';
+import { jobs, skillIcons } from '../../data/jobs';
+
+interface Props { locale: string; }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const localeJobs = jobs[locale] ?? jobs['en'];
+---
+<HomeSection id="experience" haze="section-accent-haze">
+  <SectionHeading label={t('sections.experience')} color="accent" mb="mb-10" />
+  <div class="relative">
+    <CornerBrackets color="accent" size="w-4 h-4" />
+    <ExperienceAccordion client:load jobs={localeJobs} skillIcons={skillIcons} />
+  </div>
+</HomeSection>

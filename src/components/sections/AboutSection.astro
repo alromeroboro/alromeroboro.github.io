@@ -1,0 +1,74 @@
+---
+import { useTranslations } from '../../i18n';
+import HomeSection from '../ui/HomeSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import CornerBrackets from '../ui/CornerBrackets.astro';
+
+interface Props { locale: string; }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+<HomeSection id="about" haze="section-cyan-haze">
+
+  <SectionHeading label={t('sections.about')} color="neon" />
+
+  <!-- HUD ID card -->
+  <div class="relative border border-neon/30 grid grid-cols-1 md:grid-cols-[280px_1fr]"
+       style="background: rgba(0,8,16,0.88); box-shadow: 0 0 24px rgba(0,255,255,0.08);">
+
+    <CornerBrackets color="neon" size="w-5 h-5" />
+
+    <!-- LEFT: Photo column -->
+    <div class="relative flex flex-col border-b md:border-b-0 md:border-r border-neon/20 p-4 sm:p-6 items-center gap-3">
+      <div class="w-full flex items-center gap-2 mb-1">
+        <span class="text-[9px] font-display tracking-[0.3em] text-neon/60 uppercase">
+          &#x25A3;&#x25A3; {t('about.subject')}
+        </span>
+        <div class="flex-1 h-px bg-neon/20"></div>
+      </div>
+
+      <!-- Photo frame -->
+      <div class="relative w-44 sm:w-52">
+        <CornerBrackets color="neon" size="w-4 h-4" hiOpacity={0.8} loOpacity={0.5} />
+        <img
+          src="/images/selfie.png"
+          alt="Alberto Romero"
+          class="w-full h-auto block"
+          style="filter: drop-shadow(0 0 8px rgba(0,255,255,0.35)) drop-shadow(0 0 20px rgba(0,255,255,0.15));"
+        />
+        <div class="absolute inset-0 pointer-events-none"
+             style="background: repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0,255,255,0.04) 3px, rgba(0,255,255,0.04) 4px);">
+        </div>
+      </div>
+
+      <!-- Status badge -->
+      <div class="w-full border border-neon/30 py-1 px-2 text-center mt-1"
+           style="background: rgba(0,255,255,0.06);">
+        <span class="text-[10px] font-display tracking-[0.25em] text-neon text-glow-neon uppercase">
+          {t('about.status')}
+        </span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Bio column -->
+    <div class="p-6 sm:p-8 flex flex-col gap-5">
+      <div>
+        <div class="flex items-center gap-3">
+          <p class="font-name text-neon text-xl sm:text-2xl tracking-widest text-glow-neon leading-tight">
+            {t('hero.name')}
+          </p>
+          <img src="/images/logo.png" alt="AR" width="36" height="36" class="logo-mark" />
+        </div>
+        <p class="font-display text-fuchsia text-xs tracking-[0.3em] mt-1 uppercase"
+           style="text-shadow: 0 0 8px rgba(255,0,200,0.5);">
+          FRONTEND DEVELOPER
+        </p>
+        <div class="h-px bg-gradient-to-r from-neon/30 to-transparent mt-3"></div>
+      </div>
+      <p class="text-xs sm:text-sm text-muted/80 leading-relaxed tracking-wide">{t('about.bio1')}</p>
+      <p class="text-xs sm:text-sm text-muted/80 leading-relaxed tracking-wide">{t('about.bio2')}</p>
+      <p class="text-xs sm:text-sm text-muted/80 leading-relaxed tracking-wide">{t('about.bio3')}</p>
+    </div>
+
+  </div>
+</HomeSection>

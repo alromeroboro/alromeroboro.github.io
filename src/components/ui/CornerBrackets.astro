@@ -1,0 +1,25 @@
+---
+interface Props {
+  color?: 'neon' | 'accent' | 'fuchsia' | 'amber';
+  size?: string;
+  weight?: number;
+  hiOpacity?: number;
+  loOpacity?: number;
+}
+const { color = 'neon', size = 'w-4 h-4', weight = 2, hiOpacity = 0.7, loOpacity = 0.4 } = Astro.props;
+
+const hex: Record<string, string> = {
+  neon:    '#00ffff',
+  accent:  '#ff003c',
+  fuchsia: '#ff00c8',
+  amber:   '#ff8c00',
+};
+const c = hex[color];
+const hi = `${c}${Math.round(hiOpacity * 255).toString(16).padStart(2, '0')}`;
+const lo = `${c}${Math.round(loOpacity * 255).toString(16).padStart(2, '0')}`;
+const b = `${weight}px`;
+---
+<div class={`absolute top-0 left-0 ${size} z-10`}    style={`border-top:${b} solid ${hi}; border-left:${b} solid ${hi};`}></div>
+<div class={`absolute top-0 right-0 ${size} z-10`}   style={`border-top:${b} solid ${lo}; border-right:${b} solid ${lo};`}></div>
+<div class={`absolute bottom-0 left-0 ${size} z-10`} style={`border-bottom:${b} solid ${lo}; border-left:${b} solid ${lo};`}></div>
+<div class={`absolute bottom-0 right-0 ${size} z-10`} style={`border-bottom:${b} solid ${hi}; border-right:${b} solid ${hi};`}></div>

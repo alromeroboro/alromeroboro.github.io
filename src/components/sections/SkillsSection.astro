@@ -1,0 +1,23 @@
+---
+import { useTranslations } from '../../i18n';
+import HomeSection from '../ui/HomeSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import SkillBox from '../ui/SkillBox.astro';
+import { skillCategories } from '../../data/skills';
+
+interface Props { locale: string; }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+<HomeSection id="skills" haze="section-amber-haze">
+  <SectionHeading label={t('sections.skills')} color="amber" mb="mb-10" />
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    {skillCategories.map(cat => (
+      <SkillBox
+        title={t(`skills.${cat.key}` as Parameters<typeof t>[0])}
+        skills={cat.skills}
+        fullWidth={cat.fullWidth}
+      />
+    ))}
+  </div>
+</HomeSection>

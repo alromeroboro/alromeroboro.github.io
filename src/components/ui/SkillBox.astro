@@ -1,0 +1,30 @@
+---
+import { skillIcons } from '../../data/jobs';
+
+interface Props {
+  title: string;
+  skills: string[];
+  fullWidth?: boolean;
+}
+const { title, skills, fullWidth = false } = Astro.props;
+---
+<div class:list={['relative border border-amber/30 p-4', { 'sm:col-span-2': fullWidth }]}
+     style="background: rgba(18,8,0,0.75);">
+  <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/60"></div>
+  <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/60"></div>
+  <div class="flex items-center gap-2 mb-3">
+    <span class="text-[9px] font-display tracking-[0.3em] text-amber/70 uppercase">▶ {title}</span>
+    <div class="flex-1 h-px bg-amber/20"></div>
+  </div>
+  <div class="flex flex-wrap gap-1.5">
+    {skills.map(s => {
+      const slug = skillIcons[s];
+      return (
+        <span class="skill-tag">
+          {slug && <img src={`https://cdn.simpleicons.org/${slug}`} alt="" class="skill-icon" width="16" height="16" loading="lazy" />}
+          {s}
+        </span>
+      );
+    })}
+  </div>
+</div>

@@ -1,0 +1,18 @@
+---
+import { useTranslations } from '../../i18n';
+import HomeSection from '../ui/HomeSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import CornerBrackets from '../ui/CornerBrackets.astro';
+
+interface Props { locale: string; }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+<HomeSection id="projects" haze="section-fuchsia-haze">
+  <SectionHeading label={t('sections.projects')} color="fuchsia" mb="mb-10" />
+  <div class="relative border border-fuchsia/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(0,10,18,0.85); box-shadow: 0 0 18px rgba(255,0,200,0.12);">
+    <CornerBrackets color="fuchsia" size="w-4 h-4" />
+    <p class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">{t('sections.underConstruction')}</p>
+    <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
+  </div>
+</HomeSection>
