@@ -69,6 +69,10 @@ export const en = {
 
   // About section download
   'hero.downloadResume': 'DOWNLOAD RESUME',
+
+  // Projects section
+  'projects.viewLive': 'VIEW LIVE >>',
+  'projects.stack': 'STACK',
 } as const;
 
 export type TranslationKey = keyof typeof en;

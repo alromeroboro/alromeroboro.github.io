@@ -5,7 +5,7 @@ export interface SkillCategory {
 }
 
 export const skillCategories: SkillCategory[] = [
-  { key: 'frontend', skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue', 'Astro', 'Redux', 'Storybook', 'W3C'] },
+  { key: 'frontend', skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue', 'Astro', 'Redux', 'Storybook', 'W3C', 'Tailwind CSS'] },
   { key: 'backend',  skills: ['PHP', 'Laravel', 'Python', 'FastAPI', 'Django'] },
   { key: 'databases', skills: ['MySQL', 'SQL', 'PostgreSQL', 'MongoDB'] },
   { key: 'ai',       skills: ['Claude Code', 'Codex'] },

@@ -1,5 +1,7 @@
 ---
+import { getCollection } from 'astro:content';
 import { useTranslations } from '../../i18n';
+import { skillIcons } from '../../data/jobs';
 import HomeSection from '../ui/HomeSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import CornerBrackets from '../ui/CornerBrackets.astro';
@@ -8,13 +10,79 @@ import BackToTop from '../ui/BackToTop.astro';
 interface Props { locale: string; }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+
+const allProjects = await getCollection('projects', ({ id }) =>
+  id.startsWith(locale + '/')
+);
+const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
 ---
 <HomeSection id="projects" haze="section-fuchsia-haze">
   <SectionHeading label={t('sections.projects')} color="fuchsia" mb="mb-10" />
-  <div class="relative border border-fuchsia/50 p-6 sm:p-10 text-center mx-auto max-w-2xl" style="background: rgba(0,10,18,0.85); box-shadow: 0 0 18px rgba(255,0,200,0.12);">
-    <CornerBrackets color="fuchsia" size="w-4 h-4" />
-    <p class="font-display text-fuchsia text-sm tracking-widest text-glow-fuchsia">{t('sections.underConstruction')}</p>
-    <p class="text-xs text-muted/60 mt-3 tracking-widest">{t('sections.wipText')}</p>
+  <div class="flex flex-col gap-10">
+    {projects.map((project) => (
+      <article
+        class="relative border border-fuchsia/40 overflow-hidden"
+        style="background: rgba(0,8,18,0.88); box-shadow: 0 0 28px rgba(255,0,200,0.10);"
+      >
+        <CornerBrackets color="fuchsia" size="w-4 h-4" />
+
+        {/* Title — full-width top bar */}
+        <div class="px-6 pt-6 pb-4 border-b border-fuchsia/20">
+          <h3 class="font-display text-fuchsia text-lg tracking-widest text-glow-fuchsia">
+            {project.data.title}
+          </h3>
+        </div>
+
+        {/* Body — image left, content right */}
+        <div class="flex flex-col sm:flex-row">
+          {project.data.image && (
+            <div class="sm:w-2/5 border-b sm:border-b-0 sm:border-r border-fuchsia/20 shrink-0 overflow-hidden">
+              <img
+                src={project.data.image}
+                alt={project.data.title}
+                class="w-full h-full object-cover object-top max-h-64 sm:max-h-none"
+              />
+            </div>
+          )}
+          <div class="flex-1 p-6 sm:p-8 flex flex-col gap-5">
+            <p class="text-muted text-sm leading-relaxed">
+              {project.data.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.data.stack.map((tag) => {
+                const slug = skillIcons[tag];
+                return (
+                  <span class="skill-tag">
+                    {slug && (
+                      <img
+                        src={`https://cdn.simpleicons.org/${slug}`}
+                        alt={tag}
+                        width="16"
+                        height="16"
+                        loading="lazy"
+                      />
+                    )}
+                    {tag}
+                  </span>
+                );
+              })}
+            </div>
+            {project.data.liveUrl && (
+              <div class="mt-auto">
+                <a
+                  href={project.data.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block border border-fuchsia text-fuchsia font-display text-xs tracking-widest px-5 py-2 hover:bg-fuchsia/10 transition-colors"
+                >
+                  {t('projects.viewLive')}
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
   </div>
   <BackToTop color="fuchsia" />
 </HomeSection>

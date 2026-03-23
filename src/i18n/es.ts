@@ -71,4 +71,8 @@ export const es: Record<TranslationKey, string> = {
 
   // About section download
   'hero.downloadResume': 'DESCARGAR CV',
+
+  // Projects section
+  'projects.viewLive': 'VER EN VIVO >>',
+  'projects.stack': 'STACK',
 };

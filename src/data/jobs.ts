@@ -106,4 +106,5 @@ export const skillIcons: Record<string, string> = {
   'Codex':        'openaigym',
   'Git':          'git',
   'Jira':         'jira',
+  'Tailwind CSS': 'tailwindcss',
 };
